@@ -1,0 +1,26 @@
+.container-div{
+    padding: 30px;
+    background-color: #27292a1e;
+    width: 75%;
+    position: absolute;
+    left: 50%;
+    transform:translate(-50% , 0) ;
+    top: 8rem;
+    border-radius: 30px;
+    }
+    .hero-main{
+        background-color: #27292a ;
+        color: white;
+        border-radius: 25px;
+        padding: 50px;
+        /* background:url('')no-repeat top right/cover; */
+    }
+    .hero-text{
+    max-width: 500px;
+     }
+    .hero-title{
+       font-size: 60px;
+       text-transform: uppercase;
+       margin-bottom: 25px;
+       font-weight: 900;
+    }

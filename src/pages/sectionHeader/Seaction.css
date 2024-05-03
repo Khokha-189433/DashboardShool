@@ -1,0 +1,8 @@
+.section-header{
+    font-size: 36px;
+    font-weight: 700 ;
+ }
+ .section-header h3{
+  text-shadow: 0 0 9px rgb(218, 114, 228);
+  color: rgba(53, 4, 53, 0.678);
+ }

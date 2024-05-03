@@ -1,0 +1,26 @@
+import * as React from 'react';
+import "./Courser.css";
+import PlayList from './PlayList';
+import { Button } from '@mui/material';
+import AddIcon from '@mui/icons-material/Add';
+///////////////////////
+
+const Courses = () => {
+  return (
+    <>
+   <div className='container-div'> 
+      <div className='hero-main'>
+        <div className='hero-text'>
+          <h5 className='hero-title'><em>C</em>ourse </h5>
+          <Button variant="outlined"  startIcon={<AddIcon />} >
+               add Courser
+          </Button>
+        </div>
+      </div>
+      <PlayList />
+    </div>
+    </>
+  )
+}
+
+export default Courses

@@ -1,0 +1,54 @@
+.header{
+    background-color: rgb(176, 114, 235);
+    /* padding: .5rem; */
+    /* border-radius: 4px; */
+   }
+.menu-list .Item{
+    font-weight: bold;
+    transition: 0.3s ease-in-out;
+    color: rgb(128, 10, 196);
+    margin-top:1.9rem ; 
+}
+
+.Logo-Icon{
+    font-size: 2.0rem;
+    color: rgb(128, 10, 196);
+    
+}
+.menu-list .Item:hover{
+ color: rgb(220, 81, 238)
+}
+.search-from{
+   width: 26rem;
+   display: flex;
+   align-items: center;
+   padding: .4rem;
+   background-color: rgba(155, 69, 224, 0.582);
+   border-radius: 120px ;
+   border-bottom: 1px rgb(142, 49, 230) solid;
+   margin-left: 29rem;
+}
+.search-from input{
+    width: 100%;
+    font-size: 1.5rem;
+    color: white;
+    background: none;
+  
+}
+.search-from button{
+    cursor: pointer;
+    font-size: larger;
+}
+.search-from button:hover{
+    color: rgb(112, 35, 143) !important; 
+}
+
+.Name-logo{
+    text-transform:uppercase ;
+    font-weight: bold ;
+    color:#ffffff;
+    font-size: 37px;
+}
+.Name-logo em{
+    color: rgb(62, 13, 107);
+}

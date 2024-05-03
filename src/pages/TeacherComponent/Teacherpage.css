@@ -1,0 +1,78 @@
+/* style card  */
+
+.section-items{
+    display: flex;
+    justify-content:space-between ;
+    flex-wrap: wrap ;
+ }
+ .section-item{
+    flex: 1 25%;
+ }
+ .cards{
+    background-color: #27292a;
+    border-radius: 20px;
+    padding: 30px;
+    margin: 10px;
+ }
+ .section-item-title1{
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.753) ;
+    text-align: center;
+    text-transform: uppercase;
+ }
+.section-items-image{
+    width: 100%;
+    border-radius: 50%;
+    margin-bottom:15px ;
+    
+ }
+
+.section-item-content Button{
+    background-color: #d94ef5d0;
+    color: white;
+    margin: 19px 30px 0 0 ;
+    padding: 6px;
+    width: 100%;
+    border: none;
+ }
+ .section-item-content Button ::hover{
+   background: #27292a;
+   color: aliceblue;
+   border: none;
+ }
+.hero-main Button{
+   background-color: #d94ef5d0;
+   color: white;
+   padding: 10px ;
+}
+
+
+/* Style DataTeacher */
+.Card-Add-User{
+   margin: 14%;
+   text-align: center;
+   border-radius: 30px;
+}
+.Typography-name{
+   background-color: rgb(197, 134, 253);
+   text-align: center;
+   padding: 10px;
+   font-size: 100px;
+   font-weight: 900; 
+}
+.Form-add-user{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding: 12px;
+   font-size: large;
+   width: 100%;
+}
+.Form-add-user label{
+   padding-bottom: 12px;
+}
+.user-info img{
+   background-color: blueviolet;
+   border-radius: 25px;
+   width: 24rem;
+}
