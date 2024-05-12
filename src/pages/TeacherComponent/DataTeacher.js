@@ -88,6 +88,7 @@ const DataTeacher = (props) => {
                 startIcon={<CloudUploadIcon />}
                 accept="image/*"
                 onChange={handleImageUpload}
+                required={true}
               >
                 Add pictures teacher
                 <VisuallyHiddenInput type="file" />
@@ -104,7 +105,6 @@ const DataTeacher = (props) => {
                 onChange={handleTitleChange}
                 required={true}
               />
-  
             </label>
             {image && (
               <div className="user-info">
