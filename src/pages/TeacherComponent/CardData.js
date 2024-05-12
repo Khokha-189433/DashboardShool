@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button } from '@mui/material'
-import { useState } from 'react'
+import { useState , useContext } from 'react'
 import PhotoTeacher from "../../assets/images/images/pic-1.jpg"
 import './Teacherpage.css'
 ///////////////////////////////////
@@ -8,8 +8,15 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import ModeEditOutlineIcon from '@mui/icons-material/ModeEditOutline';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { TeacherContext } from '../../ContextComponent/TeacherContext.js'
 
-const CardData = () => {
+
+
+
+
+
+
+const CardData = (props) => {
    return (
           <>
         
@@ -18,7 +25,7 @@ const CardData = () => {
                         <img  className='section-items-image'  src={PhotoTeacher} />  
                         <div  className='section-item-content'>
                             <h4 className='section-item-title1'>
-                                ahmed yseen 
+                                {props.title}
                             </h4>                                                 
                             <Box sx={{ flexGrow: 1 }}>
                               <Grid container spacing={2} columns={16}>

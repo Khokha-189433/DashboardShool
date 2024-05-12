@@ -35,11 +35,11 @@
     width: 100%;
     border: none;
  }
- .section-item-content Button ::hover{
+ /* .section-item-content Button ::hover{
    background: #27292a;
    color: aliceblue;
    border: none;
- }
+ } */
 .hero-main Button{
    background-color: #d94ef5d0;
    color: white;

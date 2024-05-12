@@ -1,8 +1,8 @@
 .header{
     background-color: rgb(176, 114, 235);
-    /* padding: .5rem; */
-    /* border-radius: 4px; */
-   }
+   
+}
+
 .menu-list .Item{
     font-weight: bold;
     transition: 0.3s ease-in-out;
@@ -13,7 +13,6 @@
 .Logo-Icon{
     font-size: 2.0rem;
     color: rgb(128, 10, 196);
-    
 }
 .menu-list .Item:hover{
  color: rgb(220, 81, 238)
@@ -22,7 +21,7 @@
    width: 26rem;
    display: flex;
    align-items: center;
-   padding: .4rem;
+   /* padding: .4rem; */
    background-color: rgba(155, 69, 224, 0.582);
    border-radius: 120px ;
    border-bottom: 1px rgb(142, 49, 230) solid;
@@ -33,6 +32,7 @@
     font-size: 1.5rem;
     color: white;
     background: none;
+    padding: 15px;
   
 }
 .search-from button{

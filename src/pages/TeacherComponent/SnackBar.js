@@ -3,7 +3,7 @@ import Button from '@mui/material/Button';
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 
-const SmackBar = () => {
+const SnackBar = () => {
     const [open, setOpen] = React.useState(false);
 
     const handleClick = () => {
@@ -36,4 +36,4 @@ const SmackBar = () => {
   )
 }
 
-export default SmackBar
+export default SnackBar

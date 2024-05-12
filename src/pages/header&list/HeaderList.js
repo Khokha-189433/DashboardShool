@@ -109,6 +109,7 @@ const HeaderList = () => {
         <CssBaseline />
         <AppBar position="fixed" open={open}>
             {/* start header */}
+            
             <Toolbar className="header">
             {/* زر الفتح والتسكير */}
             <IconButton
@@ -119,6 +120,7 @@ const HeaderList = () => {
                 marginRight: 5,
                 ...(open && { display: 'none' }),
                 }}
+               style={{ marginLeft:"-70px" }}
             >
                 <MenuIcon />       
             </IconButton>
@@ -135,15 +137,17 @@ const HeaderList = () => {
                 {/* مربع البحث  نهاية*/}
 
             </Toolbar>
+
+
             {/* end header */}
         </AppBar>
 
         {/*  start menu colomn ----------------------------------------------*/}
         <Drawer variant="permanent" open={open} >
-            <DrawerHeader>   {/*  زر تكبير وتصغير ال menu*/}
-            <IconButton onClick={handleDrawerClose}>
-                {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-            </IconButton>
+            <DrawerHeader >   {/*  زر تكبير وتصغير ال menu*/}
+              <IconButton onClick={handleDrawerClose} edge="start"  >
+                  {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+              </IconButton>
             </DrawerHeader>
             <Divider />
             <div className="menu-list" >    
