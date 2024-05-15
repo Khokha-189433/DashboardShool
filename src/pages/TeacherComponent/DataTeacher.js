@@ -15,10 +15,10 @@ const DataTeacher = (props) => {
   const url = "http://127.0.0.1:3010";
   const [image, setImage] = useState(null);
   const [Name, setName] = useState("");
-  
-   const handleTitleChange = (event) => {
-     setName(event.target.value);
-   };
+
+  const handleTitleChange = (event) => {
+    setName(event.target.value);
+  };
   const handleImageUpload = (event) => {
     if (event.target.files && event.target.files[0]) {
       //    شرط اذا كان العنصر يلي بدي دخله من نوع File صورة
@@ -32,31 +32,24 @@ const DataTeacher = (props) => {
     const formData = new FormData(); //نقوم بإنشاء كائن FormData  =>لاحتواء اسم المستخدم وصورة المستخدم.
     formData.append("name", Name);
     formData.append("photo", teacher_photo);
-   
-         try {
-                const request = await axios.post(
-                  `${url}/user/teacher`,
-                  formData,
-                  {
-                    headers: {
-                      "Content-Type": "multipart/form-data",
-                      authorization:
-                        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoxLCJpYXQiOjE3MTU1MDc2NjYsImV4cCI6MTcxNTU5NDA2Nn0.B8F7tAi4RC4eWKEwXyouN-DR1GSeg9nlZ1QYXfLKZyc",
-                    },
-                  }
-                );
-                console.log(request.data);
-          
-        } catch (error) {
-          console.log(error);
-        }
+
+    try {
+      const request = await axios.post(`${url}/user/teacher`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          authorization: localStorage.getItem("token"),
+        },
+      });
+      console.log(request.data);
+    } catch (error) {
+      console.log(error);
+    }
     setImage("");
     setName("");
-  
   }
   return (
     <>
-    <HeaderList/>
+      <HeaderList />
       <div className="Card-Add-User">
         <Card sx={{ minWidth: 200 }}>
           <Typography color="text.secondary" className="Typography-name">

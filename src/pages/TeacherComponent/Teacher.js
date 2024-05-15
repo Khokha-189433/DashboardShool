@@ -10,29 +10,27 @@ import ModeEditOutlineIcon from "@mui/icons-material/ModeEditOutline";
 import DeleteIcon from "@mui/icons-material/Delete";
 import GroupAddIcon from "@mui/icons-material/GroupAdd";
 import { Link } from "react-router-dom";
-import { useState , useEffect } from "react";
+import { useState, useEffect } from "react";
 import HeaderList from "../header&list/HeaderList.js";
-
 
 const url = "http://127.0.0.1:3010";
 function Teacher() {
-      const [userData, setUserData] = useState([]);
-      
-      useEffect(() => {
-        const fetchData = async () => {
-          const response = await fetch(`${url}/user/teacher`, {
-            headers: {
-              authorization:
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoxLCJpYXQiOjE3MTU1MDc2NjYsImV4cCI6MTcxNTU5NDA2Nn0.B8F7tAi4RC4eWKEwXyouN-DR1GSeg9nlZ1QYXfLKZyc",
-            },
-          });
-          const jsonData = await response.json();
-          console.log(jsonData)
-           setUserData(jsonData); // لتغيير القيمة 
-        };
-        fetchData();
-      }, []);
+  const [userData, setUserData] = useState([]);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch(`${url}/user/teacher`, {
+        headers: {
+          authorization: localStorage.getItem("token"),
+        },
+      });
+      const jsonData = await response.json();
+      console.log(jsonData);
+      setUserData(jsonData.data); // لتغيير القيمة
+      console.log(jsonData.data[1].photo);
+    };
+    fetchData();
+  }, []);
 
   return (
     <>
@@ -57,34 +55,40 @@ function Teacher() {
           <SectionWrapper>
             <Seaction></Seaction>
             <div className="section-items">
-              {/* Data  catd  .    */}
-              {/* <div className="section-item">
-              <div className="cards">
-                <img className="section-items-image" src={''} />
-                <div className="section-item-content">
-                  <h4 className="section-item-title1">{''}</h4>
-                  <Box sx={{ flexGrow: 1 }}>
-                    <Grid container spacing={2} columns={16}>
-                      <Grid item xs={8}>
-                        <Button variant="outlined" startIcon={<DeleteIcon />}>
-                          Delete
-                        </Button>
-                      </Grid>
-                      <Grid item xs={8}>
-                        <Button
-                          variant="outlined"
-                          endIcon={<ModeEditOutlineIcon />}
-                        >
-                          Edit
-                        </Button>
-                      </Grid>
-                    </Grid>
-                  </Box>
+              {userData.map((teacher) => (
+                <div className="section-item" key={teacher.id}>
+                  <div className="cards">
+                    <img
+                      className="section-items-image"
+                      src={url + "/" + teacher.photo}
+                      alt={teacher.name}
+                    />
+                    <div className="section-item-content">
+                      <h4 className="section-item-title1">{teacher.name}</h4>
+                      <Box sx={{ flexGrow: 1 }}>
+                        <Grid container spacing={2} columns={16}>
+                          <Grid item xs={8}>
+                            <Button
+                              variant="outlined"
+                              startIcon={<DeleteIcon />}
+                            >
+                              Delete
+                            </Button>
+                          </Grid>
+                          <Grid item xs={8}>
+                            <Button
+                              variant="outlined"
+                              endIcon={<ModeEditOutlineIcon />}
+                            >
+                              Edit
+                            </Button>
+                          </Grid>
+                        </Grid>
+                      </Box>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div> */}
-
-              {/*  End Data  catd .    */}
+              ))}
             </div>
           </SectionWrapper>
         </ContainerPage>
