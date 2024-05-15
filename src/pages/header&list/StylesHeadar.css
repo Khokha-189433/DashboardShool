@@ -21,7 +21,7 @@
    width: 26rem;
    display: flex;
    align-items: center;
-   /* padding: .4rem; */
+   padding: .1rem;
    background-color: rgba(155, 69, 224, 0.582);
    border-radius: 120px ;
    border-bottom: 1px rgb(142, 49, 230) solid;

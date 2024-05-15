@@ -76,3 +76,23 @@
    border-radius: 25px;
    width: 24rem;
 }
+.addPhoto{
+   clip-Path: inset(50%);
+    height: 1rem ;
+    padding: 14px;
+    overflow: hidden ;
+    position: absolute;
+    left: 0 ;
+    white-space: nowrap ;
+    /* width: 30rem ; */
+    bottom: 0;
+    white-Space: nowrap;
+    width: 1rem ;
+
+}
+.add-Photo{
+    color: rgba(154, 109, 196, 0.753);
+}
+.ButtonAdd-teacher{
+   background-color:blueviolet;
+}

@@ -153,24 +153,10 @@ const HeaderList = () => {
             <div className="menu-list" >    
               <Link to='/home'>  <ListItems  namelist='home' > <BiHome  className="Logo-Icon"  /> </ListItems> </Link>
               <Link to='/courses'> <ListItems  namelist='Courses' > <BiSolidGraduation className="Logo-Icon"   />  </ListItems> </Link>
-
               <Link  to="/teacher"> <ListItems  namelist=' Teachers' >  <BiSolidUserAccount className="Logo-Icon" /> </ListItems> </Link>
                 <ListItems  namelist=' About' > <BiQuestionMark className="Logo-Icon" /></ListItems>
                 <ListItems  namelist=' Message' > <BiMessage className="Logo-Icon" /></ListItems>
                 <ListItems  namelist=' Help  ' ><BiHelpCircle className="Logo-Icon" /></ListItems>
-
-  {/* <Link to="/courses">
-    <ListItem  disablePadding >
-      <ListItemButton>
-      <ListItemText   className='Item'>
-        <ListItemIcon>
-        <BiSolidGraduation className="Logo-Icon"   />
-        </ListItemIcon>
-        Courses
-        </ListItemText>
-      </ListItemButton>
-    </ListItem>
-  </Link> */}
             </div>
         </Drawer>
         {/* end menu list column--------------------------------------------- */}

@@ -8,13 +8,6 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import ModeEditOutlineIcon from '@mui/icons-material/ModeEditOutline';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { TeacherContext } from '../../ContextComponent/TeacherContext.js'
-
-
-
-
-
-
 
 const CardData = (props) => {
    return (

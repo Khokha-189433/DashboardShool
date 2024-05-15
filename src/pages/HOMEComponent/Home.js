@@ -1,11 +1,16 @@
 import "./Home.css"
 import React from 'react'
+import HeaderList from "../header&list/HeaderList";
 
-const Home = () => {
+const Home = (props) => {
   return (
-    <div>
-        home
-    </div>
+    <>
+      <HeaderList />
+      <div>
+        <h1> hello</h1>
+        <button type="submit"></button>
+      </div>
+    </>
   );
 }
 

@@ -8,14 +8,17 @@ import { styled } from "@mui/material/styles";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import { Link } from "react-router-dom";
 import axios from "axios";
-let teacher_photo = null;
+import HeaderList from "../header&list/HeaderList";
 
+let teacher_photo = null;
 const DataTeacher = (props) => {
   const url = "http://127.0.0.1:3010";
   const [image, setImage] = useState(null);
   const [Name, setName] = useState("");
-  const [accept, setaccept] = useState(false); /// بعد اول ضغطة ع ال submit  اذا كان الشرط محقق طلع الغلط
-
+  
+   const handleTitleChange = (event) => {
+     setName(event.target.value);
+   };
   const handleImageUpload = (event) => {
     if (event.target.files && event.target.files[0]) {
       //    شرط اذا كان العنصر يلي بدي دخله من نوع File صورة
@@ -23,34 +26,14 @@ const DataTeacher = (props) => {
       teacher_photo = event.target.files[0];
     }
   };
-  const VisuallyHiddenInput = styled("input")({
-    clipPath: "inset(50%)",
-    height: 1,
-    overflow: "hidden",
-    position: "absolute",
-    bottom: 0,
-    left: 0,
-    whiteSpace: "nowrap",
-    width: 1,
-  });
-
-  const handleTitleChange = (event) => {
-    setName(event.target.value);
-  };
 
   async function handleSubmit(event) {
     event.preventDefault();
-    setaccept(true);
-    let flags = true; // من اجل ارسال البيالنات بحال كانت القيمة true
     const formData = new FormData(); //نقوم بإنشاء كائن FormData  =>لاحتواء اسم المستخدم وصورة المستخدم.
     formData.append("name", Name);
     formData.append("photo", teacher_photo);
-    if (teacher_photo === null || Name.length.toString < 3) {
-      flags = false;
-    } else flags = true;
-      
-        try {
-          if (flags) {
+   
+         try {
                 const request = await axios.post(
                   `${url}/user/teacher`,
                   formData,
@@ -63,62 +46,67 @@ const DataTeacher = (props) => {
                   }
                 );
                 console.log(request.data);
-          }
+          
         } catch (error) {
           console.log(error);
         }
     setImage("");
     setName("");
-     setaccept("")
+  
   }
-
   return (
-    <div className="Card-Add-User">
-      <Card sx={{ minWidth: 200 }}>
-        <Typography color="text.secondary" className="Typography-name">
-          Add Info Teacher
-        </Typography>
-        <CardContent>
-          <form onSubmit={handleSubmit} className="Form-add-user">
-            <label>
-              <Button
-                component="label"
-                role={undefined}
-                tabIndex={-1}
-                startIcon={<CloudUploadIcon />}
-                accept="image/*"
-                onChange={handleImageUpload}
-                required={true}
-              >
+    <>
+    <HeaderList/>
+      <div className="Card-Add-User">
+        <Card sx={{ minWidth: 200 }}>
+          <Typography color="text.secondary" className="Typography-name">
+            Add Info Teacher
+          </Typography>
+          <CardContent>
+            <form onSubmit={handleSubmit} className="Form-add-user">
+              <label className="add-Photo">
+                <input
+                  type="file"
+                  id="image"
+                  accept="image/*"
+                  onChange={handleImageUpload}
+                  className="addPhoto"
+                  required
+                />
+                {<CloudUploadIcon />}
                 Add pictures teacher
-                <VisuallyHiddenInput type="file" />
-              </Button>
-            </label>
+              </label>
 
-            <label>
-              <TextField
-                id="standard-textarea"
-                label="Teacher Name"
-                multiline
-                variant="standard"
-                value={Name}
-                onChange={handleTitleChange}
-                required={true}
-              />
-            </label>
-            {image && (
-              <div className="user-info">
-                <img src={image} alt="photoTeacher" />
-                <h3>{Name}</h3>
-              </div>
-            )}
-            <Button type="submit" color="secondary">
-              إضافة
-            </Button>
-          </form>
-        </CardContent>
-      </Card>
-    </div>
+              <label>
+                <TextField
+                  id="standard-textarea"
+                  label="Teacher Name"
+                  multiline
+                  variant="standard"
+                  value={Name}
+                  onChange={handleTitleChange}
+                  helperText={Name.length < 3 ? "Most be more than 3 char" : ""}
+                  required
+                />
+              </label>
+              {image && (
+                <div className="user-info">
+                  <img src={image} alt="photoTeacher" />
+                  <h3>{Name}</h3>
+                </div>
+              )}
+              <Button
+                type="submit"
+                color="secondary"
+                className="ButtonAdd-teacher"
+              >
+                إضافة
+              </Button>
+            </form>
+          </CardContent>
+        </Card>
+      </div>
+    </>
   );
 };
 
