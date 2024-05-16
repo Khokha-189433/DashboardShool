@@ -33,8 +33,9 @@ export default function Login() {
 
     try {
       const { data } = await axios.post(`${url}/admin/login`, userData);
+      
+      
       localStorage.setItem("token", data.data.accessToken);
-      console.log(localStorage.getItem("token"))
 
       setState(true) 
     }

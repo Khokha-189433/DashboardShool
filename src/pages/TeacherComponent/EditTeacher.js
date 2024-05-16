@@ -1,55 +1,76 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
+import { useLocation } from "react-router-dom";
 import axios from "axios";
 import HeaderList from "../header&list/HeaderList";
 
 let teacher_photo = null;
-const DataTeacher = () => {
-  const url = "http://127.0.0.1:3010";
+const url = "http://127.0.0.1:3010";
+
+const EditTeacher = (props) => {
   const [image, setImage] = useState(null);
   const [Name, setName] = useState("");
+  const data = useLocation().state.teacher;
 
+  useEffect(() => {
+    if (data) {
+      console.log(data);
+      setImage(url + "/" + data.photo);
+      setName(data.name);
+    }
+  }, []);
+
+  ////////Title Teacher /////////
   const handleTitleChange = (event) => {
     setName(event.target.value);
   };
+  //////// End Title Teacher /////////
+
+  ////////ImageUpload Teacher /////////
+
   const handleImageUpload = (event) => {
     if (event.target.files && event.target.files[0]) {
-      //    شرط اذا كان العنصر يلي بدي دخله من نوع File صورة
       setImage(URL.createObjectURL(event.target.files[0]));
       teacher_photo = event.target.files[0];
     }
   };
+  //////// END ImageUpload Teacher /////////
 
+  //////// Submit  /////////
   async function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(); //نقوم بإنشاء كائن FormData  =>لاحتواء اسم المستخدم وصورة المستخدم.
     formData.append("name", Name);
     formData.append("photo", teacher_photo);
-
     try {
-      const request = await axios.post(`${url}/teacher`, formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-          authorization: localStorage.getItem("token"),
-        },
-      });
-      window.history.back(); 
+      const request = await axios.put(
+        `${url}/teacher/${data.teacher_id}`,
+        formData,
+        {
+          headers: {
+            authorization: localStorage.getItem("token"),
+          },
+        }
+      );
+      window.history.back();
     } catch (error) {
-      console.log(error);
+      console.log(error.request);
     }
   }
+  //////// Submit  /////////
+
   return (
     <>
       <HeaderList />
       <div className="Card-Add-User">
         <Card sx={{ minWidth: 200 }}>
           <Typography color="text.secondary" className="Typography-name">
-            Add Info Teacher
+            Edit Info Teacher
           </Typography>
           <CardContent>
             <form onSubmit={handleSubmit} className="Form-add-user">
@@ -89,7 +110,7 @@ const DataTeacher = () => {
                 color="secondary"
                 className="ButtonAdd-teacher"
               >
-                إضافة
+                Edit
               </Button>
             </form>
           </CardContent>
@@ -99,5 +120,4 @@ const DataTeacher = () => {
   );
 };
 
-export default DataTeacher;
-
+export default EditTeacher;

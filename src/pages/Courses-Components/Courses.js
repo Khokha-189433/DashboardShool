@@ -9,7 +9,7 @@ import HeaderList from '../header&list/HeaderList';
 const Courses = () => {
   return (
     <>
-      <HeaderList  />
+      <HeaderList />
       <div className="container-div">
         <div className="hero-main">
           <div className="hero-text">
@@ -18,6 +18,13 @@ const Courses = () => {
             </h5>
             <Button variant="outlined" startIcon={<AddIcon />}>
               add Courser
+            </Button>
+            
+            <Button
+              variant="outlined"
+              startIcon={<AddIcon />}
+              style={{ marginLeft: "12px" }}>
+              add class
             </Button>
           </div>
         </div>

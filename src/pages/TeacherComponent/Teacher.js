@@ -12,25 +12,46 @@ import GroupAddIcon from "@mui/icons-material/GroupAdd";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import HeaderList from "../header&list/HeaderList.js";
+import axios from "axios";
+import { idID } from "@mui/material/locale";
 
 const url = "http://127.0.0.1:3010";
 function Teacher() {
+  // const [isDeleting, setIsDeleting] = useState(false);
   const [userData, setUserData] = useState([]);
-
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(`${url}/user/teacher`, {
+      const response = await fetch(`${url}/teacher`, {
         headers: {
           authorization: localStorage.getItem("token"),
         },
       });
       const jsonData = await response.json();
-      console.log(jsonData);
       setUserData(jsonData.data); // لتغيير القيمة
-      console.log(jsonData.data[1].photo);
     };
-    fetchData();
+    fetchData().catch((error) => {
+      console.log(error);
+    });
   }, []);
+
+  //////// Delete Techer   /////////
+
+  async function deleteTeacher(id) {
+    try {
+      const response = await axios.delete(`${url}/teacher/${id}`, {
+        headers: {
+          authorization: localStorage.getItem("token"),
+        },
+      });
+      console.log("User deleted successfully:", response.data); // Handle successful deletion
+      // Update UI to reflect the deletion (optional)
+    } catch (error) {
+      console.error("Error deleting user:", error);
+      // Handle errors (e.g., display an error message to the user)
+    }
+  }
+
+  //////// End Delete Techer   /////////
 
   return (
     <>
@@ -56,7 +77,7 @@ function Teacher() {
             <Seaction></Seaction>
             <div className="section-items">
               {userData.map((teacher) => (
-                <div className="section-item" key={teacher.id}>
+                <div className="section-item" key={teacher.teacher_id}>
                   <div className="cards">
                     <img
                       className="section-items-image"
@@ -71,17 +92,23 @@ function Teacher() {
                             <Button
                               variant="outlined"
                               startIcon={<DeleteIcon />}
+                              onClick={() => {
+                                deleteTeacher(teacher.teacher_id);
+                              }}
                             >
                               Delete
                             </Button>
                           </Grid>
+
                           <Grid item xs={8}>
-                            <Button
-                              variant="outlined"
-                              endIcon={<ModeEditOutlineIcon />}
-                            >
-                              Edit
-                            </Button>
+                            <Link to="/EditTeacher" state={{ teacher }}>
+                              <Button
+                                variant="outlined"
+                                endIcon={<ModeEditOutlineIcon />}
+                              >
+                                Edit
+                              </Button>
+                            </Link>
                           </Grid>
                         </Grid>
                       </Box>

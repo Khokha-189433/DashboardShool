@@ -13,6 +13,7 @@
     border-radius: 20px;
     padding: 30px;
     margin: 10px;
+    align-items:center;
  }
  .section-item-title1{
     font-size: 20px;
@@ -22,8 +23,10 @@
  }
 .section-items-image{
     width: 100%;
-    border-radius: 50%;
+    align-items: center;
+    border-radius: 5%;
     margin-bottom:15px ;
+    height: 15rem;
     
  }
 
