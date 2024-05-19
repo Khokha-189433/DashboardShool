@@ -36,8 +36,9 @@
   
 }
 .search-from button{
-    cursor: pointer;
-    font-size: larger;
+    /* cursor: pointer;
+    border-radius: none;
+    padding: 10px; */
 }
 .search-from button:hover{
     color: rgb(112, 35, 143) !important; 
@@ -51,4 +52,10 @@
 }
 .Name-logo em{
     color: rgb(62, 13, 107);
+}
+a{
+    text-decoration: none;
+}
+.IconButton-{
+    background-color: brown;
 }

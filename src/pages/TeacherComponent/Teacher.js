@@ -13,7 +13,6 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import HeaderList from "../header&list/HeaderList.js";
 import axios from "axios";
-import { idID } from "@mui/material/locale";
 
 const url = "http://127.0.0.1:3010";
 function Teacher() {
@@ -23,7 +22,7 @@ function Teacher() {
     const fetchData = async () => {
       const response = await fetch(`${url}/teacher`, {
         headers: {
-          authorization: localStorage.getItem("token"),
+          authorization: sessionStorage.getItem("Token"),
         },
       });
       const jsonData = await response.json();
@@ -76,7 +75,7 @@ function Teacher() {
           <SectionWrapper>
             <Seaction></Seaction>
             <div className="section-items">
-              {userData.map((teacher) => (
+              {userData ?userData.map((teacher) => (
                 <div className="section-item" key={teacher.teacher_id}>
                   <div className="cards">
                     <img
@@ -115,7 +114,9 @@ function Teacher() {
                     </div>
                   </div>
                 </div>
-              ))}
+              )
+            ) : <p>
+              there is no teachers</p>}
             </div>
           </SectionWrapper>
         </ContainerPage>

@@ -12,12 +12,13 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import { BiHelpCircle, BiHome , BiMessage  ,BiSolidUserAccount , BiQuestionMark, BiSolidGraduation,BiMenu  ,BiSearch,BiToggleLeft} from 'react-icons/bi'
+import { BiHome , BiMessage  ,BiSolidUserAccount , BiQuestionMark, BiSolidGraduation,BiLogOut  ,BiSearch,t} from 'react-icons/bi'
 //////// end import properties from mui library *design*////////
 import { Link } from "react-router-dom";
 //////////////////////////////////////////////
 import ListItems from './ListItem'
 import './StylesHeadar.css' ;
+import { Button } from '@mui/material';
 ///////////////////////////
 
 // for design header
@@ -103,67 +104,104 @@ const HeaderList = () => {
     };
  
     return (
-    <>
-        <Box sx={{ display: 'flex' , background:'' , margin:"12px"}}>
-        
-        <CssBaseline />
-        <AppBar position="fixed" open={open}>
+      <>
+        <Box sx={{ display: "flex", background: "", margin: "12px" }}>
+          <CssBaseline />
+          <AppBar position="fixed" open={open}>
             {/* start header */}
-            
+
             <Toolbar className="header">
-            {/* زر الفتح والتسكير */}
-            <IconButton
+              {/* زر الفتح والتسكير */}
+              <IconButton
                 d-label="open drawer"
                 onClick={handleDrawerOpen}
                 edge="start"
                 sx={{
-                marginRight: 5,
-                ...(open && { display: 'none' }),
+                  marginRight: 0,
+                  ...(open && { display: "none" }),
                 }}
-               style={{ marginLeft:"-70px" }}
-            >
-                <MenuIcon />       
-            </IconButton>
-            {/*  نهاية زر الفتح والتسكير  */}
+                style={{ marginLeft: "-70px" }}
+                className="IconButton-"
+              >
+                <MenuIcon />
+              </IconButton>
+              {/*  نهاية زر الفتح والتسكير  */}
 
-            <h2   className="Name-logo">
+              <h2 className="Name-logo">
                 <em>S</em>chool
-            </h2>
-                {/* مربع البحث */}
-                <form action="" method="post" className="search-from">
-                <input type="text" placeholder="Search..." ></input>
-                <button type="submit"  style={{background:"none" ,color: "white"}}>  <BiSearch  size={32}/></button>
-                </form>
-                {/* مربع البحث  نهاية*/}
-
+              </h2>
+              {/* مربع البحث */}
+              <form action="" method="post" className="search-from">
+                <input type="text" placeholder="Search..."></input>
+                <Button
+                  type="submit"
+                  style={{ background: "none", color: "white" }}
+                >
+                  {" "}
+                  <BiSearch size={31} />
+                </Button>
+              </form>
+              {/* مربع البحث  نهاية*/}
             </Toolbar>
 
-
             {/* end header */}
-        </AppBar>
+          </AppBar>
 
-        {/*  start menu colomn ----------------------------------------------*/}
-        <Drawer variant="permanent" open={open} >
-            <DrawerHeader >   {/*  زر تكبير وتصغير ال menu*/}
-              <IconButton onClick={handleDrawerClose} edge="start"  >
-                  {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+          {/*  start menu colomn ----------------------------------------------*/}
+          <Drawer variant="permanent" open={open}>
+            <DrawerHeader>
+              {" "}
+              {/*  زر تكبير وتصغير ال menu*/}
+              <IconButton onClick={handleDrawerClose} edge="start">
+                {theme.direction === "rtl" ? (
+                  <ChevronRightIcon />
+                ) : (
+                  <ChevronLeftIcon />
+                )}
               </IconButton>
             </DrawerHeader>
             <Divider />
-            <div className="menu-list" >    
-              <Link to='/home'>  <ListItems  namelist='home' > <BiHome  className="Logo-Icon"  /> </ListItems> </Link>
-              <Link to='/courses'> <ListItems  namelist='Courses' > <BiSolidGraduation className="Logo-Icon"   />  </ListItems> </Link>
-              <Link  to="/teacher"> <ListItems  namelist=' Teachers' >  <BiSolidUserAccount className="Logo-Icon" /> </ListItems> </Link>
-                <ListItems  namelist=' About' > <BiQuestionMark className="Logo-Icon" /></ListItems>
-                <ListItems  namelist=' Message' > <BiMessage className="Logo-Icon" /></ListItems>
-                <ListItems  namelist=' Help  ' ><BiHelpCircle className="Logo-Icon" /></ListItems>
+            <div className="menu-list">
+              <Link to="/home">
+                {" "}
+                <ListItems namelist="home">
+                  {" "}
+                  <BiHome className="Logo-Icon" />{" "}
+                </ListItems>{" "}
+              </Link>
+              <Link to="/courses">
+                {" "}
+                <ListItems namelist="Courses">
+                  {" "}
+                  <BiSolidGraduation className="Logo-Icon" />{" "}
+                </ListItems>{" "}
+              </Link>
+              <Link to="/teacher">
+                {" "}
+                <ListItems namelist=" Teachers">
+                  {" "}
+                  <BiSolidUserAccount className="Logo-Icon" />{" "}
+                </ListItems>{" "}
+              </Link>
+              <ListItems namelist=" About">
+                {" "}
+                <BiQuestionMark className="Logo-Icon" />
+              </ListItems>
+              <ListItems namelist=" Message">
+                {" "}
+                <BiMessage className="Logo-Icon" />
+              </ListItems>
+              <Link to="/logOut">
+                <ListItems namelist="LogOut ">
+                  <BiLogOut className="Logo-Icon" />
+                </ListItems>
+              </Link>
             </div>
-        </Drawer>
-        {/* end menu list column--------------------------------------------- */}
+          </Drawer>
+          {/* end menu list column--------------------------------------------- */}
         </Box>
-    
-</>
-  )
+      </>
+    );
 }
 
 export default HeaderList

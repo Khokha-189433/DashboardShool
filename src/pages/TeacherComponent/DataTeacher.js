@@ -35,7 +35,7 @@ const DataTeacher = () => {
       const request = await axios.post(`${url}/teacher`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
-          authorization: localStorage.getItem("token"),
+          authorization: sessionStorage.getItem("token"),
         },
       });
       window.history.back(); 
