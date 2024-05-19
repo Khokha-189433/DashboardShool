@@ -72,3 +72,16 @@ Button{
     padding: 30px;
     margin: 10px;
  }
+
+
+ /* //////////// class ///////// */
+ .section-Class{
+    display: inline-flex;
+    justify-items: center;
+   flex-wrap: wrap ;
+ }
+ .Class-Course {
+   display: flex;
+    flex: 0 25%;
+ }
+

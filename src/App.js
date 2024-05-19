@@ -10,6 +10,8 @@ import DataTeacher from "./pages/TeacherComponent/DataTeacher.js";
 import CardData from "./pages/TeacherComponent/CardData.js";
 //////////////// course /////////////////////
 import Courses from "./pages/Courses-Components/Courses.js";
+ import AddClass  from './pages/Courses-Components/AddClass.js'
+ import  AddCourse from './pages/Courses-Components/AddCourse.js'
 //////////////// course /////////////////////
 import Start from "./pages/Start/Start.js";
 import LogOutPages from "./pages/ContextToken/LogOutComponenet/LogOutPages.js";
@@ -20,14 +22,21 @@ function App() {
       <Routes>
         <Route path="/" element={<Start />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/logOut" element={<LogOutPages />} />
         <Route path="/Home" element={<Home />} />
         <Route path="/dash" element={<Page />} />
+        {/* teacher */}
         <Route path="/teacher" element={<Teacher />} />
         <Route path="/dataTeacher" element={<DataTeacher />} />
         <Route path="/CardData" element={<CardData />} />
         <Route path="/EditTeacher" element={<EditTeacher />} />
-        <Route path="/courses" element={<Courses />}></Route>
-        <Route path="/logOut" element={<LogOutPages />}></Route>
+        {/*end teacher  */}
+
+        {/* Courses */}
+        <Route path="/courses" element={<Courses />} />
+        <Route path="/AddClass" element={<AddClass />} />
+        <Route path="/AddCourse" element={<AddCourse />} />
+        {/*End Courses */}
       </Routes>
     </>
   );

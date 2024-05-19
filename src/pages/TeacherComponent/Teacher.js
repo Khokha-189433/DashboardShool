@@ -20,7 +20,7 @@ function Teacher() {
   const [userData, setUserData] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(`${url}/teacher`, {
+      const response = await fetch(`${url}/teacher`,{
         headers: {
           authorization: sessionStorage.getItem("Token"),
         },
@@ -39,7 +39,7 @@ function Teacher() {
     try {
       const response = await axios.delete(`${url}/teacher/${id}`, {
         headers: {
-          authorization: localStorage.getItem("token"),
+          authorization: localStorage.getItem("Token"),
         },
       });
       console.log("User deleted successfully:", response.data); // Handle successful deletion

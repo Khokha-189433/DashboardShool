@@ -6,7 +6,7 @@ const CardPl= (props) => {
   return (
     <>
        <div className='section-header-item'>
-                <div className='card'>
+                <div className='card' id={props.id}>
                     <img  className='section-header-item-images'  src={props.image} />  
                     <div  className='section-header-item-content'>
                         <h4 className='section-header-item-title'>
@@ -15,7 +15,7 @@ const CardPl= (props) => {
                         <Box sx={{ flexGrow: 1 }}>
                               <Grid container spacing={8} columns={8}>
                                 <Grid item xs={8}>
-                                <Button>Open</Button>
+                                <Button>{props.NameButtun}</Button>
                                 </Grid>
                               </Grid>
                            </Box>    
