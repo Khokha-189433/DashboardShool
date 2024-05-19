@@ -150,16 +150,10 @@ const AddCourse = () => {
                     label="Selected"
                     onChange={handleChangeClass}
                   >
-                    {ClassData.map(() => (
-                      <>
-                       <option
-                        value={ClassData.class_id}
-                        key={ClassData.class_id}
-                      >
-                        
-                      </option>
-                      </>
-                     
+                    {ClassData.map((classItem) => (
+                      <MenuItem key={classItem.id} value={classItem.id}>
+                        {classItem.name}
+                      </MenuItem>
                     ))}
                   </Select>
                 </FormControl>
