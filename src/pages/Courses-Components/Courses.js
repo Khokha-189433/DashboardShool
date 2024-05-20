@@ -35,26 +35,26 @@ const Courses = () => {
         });
    
   }, []);
-  ///// for Show the class
-///////////////////Courses///////////
 
- ///// for Show the class
-//  const [CoursesData, setCoursesData] = useState([]);
-//  useEffect(() => {
-//    const fetchData = async () => {
-//      const response = await axios.get(`${url}/`, {
-//        headers: {
-//          authorization: sessionStorage.getItem("Token"),
-//        },
-//      });
-//      console.log(response.data);
-//      const jsonData = response.data;
-//     setCoursesData(jsonData.data); // لتغيير القيمة
-//    };
-//    fetchData().catch((error) => {
-//      console.log(error);
-//    });
-//  }, []);
+
+
+ /// for Show the class
+ const [CoursesData, setCoursesData] = useState([]);
+ useEffect(() => {
+   const fetchData = async () => {
+     const response = await axios.get(`${url}/course`, {
+       headers: {
+         authorization: sessionStorage.getItem("Token")
+       },
+     });
+     console.log(response.data);
+     const jsonData = response.data;
+    setCoursesData(jsonData.data); // لتغيير القيمة
+   };
+   fetchData().catch((error) => {
+     console.log(error);
+   });
+ }, []);
 
 
 
@@ -88,7 +88,9 @@ const Courses = () => {
           <Seaction title="play List"></Seaction>
           <div className="section-header-items">
             {/* -------cards ------------- */}
-            <CardPl image={photo} title="title framework" NameButtun="Open" />
+            {CoursesData.map((course) => (
+              <CardPl image={photo} title="title framework" NameButtun="Open" />
+            ))}
 
             {/* ===================================== */}
             {/* -------cards ------------- */}
