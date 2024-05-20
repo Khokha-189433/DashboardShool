@@ -24,6 +24,8 @@ const AddCourse = () => {
   const [NameC, setNameC] = useState("");
   const [SelectedClass, SetSelectedClass] = useState("");
   const [SelectedTeacher, SetSelectedTeacher] = useState("");
+  const [PriceCourse, SetPriceCourse] = useState("");
+  const [AboutTheCourse, SetAboutTheCourse] = useState("");
 
   const [ClassData, setClassData] = useState([]);
   const [TeacherData, setTeacherData] = useState([]);
@@ -71,18 +73,30 @@ const AddCourse = () => {
   };
 
   const handleChangeClass = (event) => {
+    console.log(event.target.value);
     SetSelectedClass(event.target.value);
   };
   const handleChangeTeacher = (event) => {
     SetSelectedTeacher(event.target.value);
   };
 
+  const handleChangePrice = (event) => {
+    SetPriceCourse(event.target.value);
+  };
+
+  const handleChangeAboutTheCourse = (event) => {
+    SetAboutTheCourse(event.target.value);
+  };
+
   async function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(); //نقوم بإنشاء كائن FormData  =>لاحتواء اسم المستخدم وصورة المستخدم.
-    formData.append("name", NameC);
+    formData.append("title", NameC);
     formData.append("photo", Course_photo);
-
+    formData.append("teacher_id", SelectedTeacher);
+    formData.append("class_id", SelectedClass);
+    formData.append("about_the_course",AboutTheCourse);
+    formData.append("course_fee",PriceCourse);
     try {
       const request = await axios.post(`${url}/course`, formData, {
         headers: {
@@ -123,13 +137,15 @@ const AddCourse = () => {
                 <TextField
                   id="standard-textarea"
                   label="Course Name"
+                  style={{
+                    height: "100px",
+                    width: "450px",
+                    fontSize: "20px",
+                  }}
                   multiline
                   variant="standard"
                   value={NameC}
                   onChange={handleTitleChange}
-                  helperText={
-                    NameC.length < 3 ? "Most be more than 3 char" : ""
-                  }
                   required
                 />
               </label>
@@ -138,10 +154,12 @@ const AddCourse = () => {
                   type="Number"
                   placeholder="Price"
                   style={{ padding: "12px" }}
+                  value={PriceCourse}
+                  onChange={handleChangePrice}
                 ></input>
               </label>
               <label>
-                <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
+                <FormControl sx={{ m: 3, minWidth: 500 }} size="small">
                   <InputLabel id="demo-select-small-label">class</InputLabel>
                   <Select
                     labelId="demo-select-small-label"
@@ -149,9 +167,16 @@ const AddCourse = () => {
                     value={SelectedClass}
                     label="Selected"
                     onChange={handleChangeClass}
+                    required
                   >
+                    <MenuItem value="">
+                      <em>None</em>
+                    </MenuItem>
                     {ClassData.map((classItem) => (
-                      <MenuItem key={classItem.id} value={classItem.id}>
+                      <MenuItem
+                        key={classItem.class_id}
+                        value={classItem.class_id}
+                      >
                         {classItem.name}
                       </MenuItem>
                     ))}
@@ -159,7 +184,7 @@ const AddCourse = () => {
                 </FormControl>
               </label>
               <label>
-                <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
+                <FormControl sx={{ m: 3, minWidth: 500 }} size="small">
                   <InputLabel id="demo-select-small-label">Teacher</InputLabel>
                   <Select
                     labelId="demo-select-small-label"
@@ -167,13 +192,19 @@ const AddCourse = () => {
                     value={SelectedTeacher}
                     label="Selected"
                     onChange={handleChangeTeacher}
+                    required
                   >
                     <MenuItem value="">
                       <em>None</em>
                     </MenuItem>
-                    <MenuItem value={10}>Ten</MenuItem>
-                    <MenuItem value={20}>Twenty</MenuItem>
-                    <MenuItem value={30}>Thirty</MenuItem>
+                    {TeacherData.map((teacherItem) => (
+                      <MenuItem
+                        key={teacherItem.teacher_id}
+                        value={teacherItem.teacher_id}
+                      >
+                        {teacherItem.name}
+                      </MenuItem>
+                    ))}
                   </Select>
                 </FormControl>
               </label>
@@ -182,16 +213,20 @@ const AddCourse = () => {
                   id="standard-textarea"
                   label="About Course"
                   variant="standard"
-                  // value={NameC}
-                  // onChange={handleTitleChange}
-                  style={{ height: "100px", width: "200px" }}
+                  style={{
+                    height: "200px",
+                    width: "500px",
+                    padding: "15px",
+                    fontSize: "20px",
+                  }}
+                  value={AboutTheCourse}
+                  onChange={handleChangeAboutTheCourse}
                 />
               </label>
 
               {imags && (
                 <div className="user-info">
                   <img src={imags} alt="photoTeacher" />
-                  <h3>{NameC}</h3>
                 </div>
               )}
               <Button
