@@ -16,17 +16,17 @@ import FormControl from "@mui/material/FormControl";
 ///////SELECT ////////////
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
+import url from "../../App.js";
+
 
 let Course_photo = null;
 const AddCourse = () => {
-  const url = "http://127.0.0.1:3010";
   const [imags, setImages] = useState(null);
   const [NameC, setNameC] = useState("");
   const [SelectedClass, SetSelectedClass] = useState("");
   const [SelectedTeacher, SetSelectedTeacher] = useState("");
   const [PriceCourse, SetPriceCourse] = useState("");
   const [AboutTheCourse, SetAboutTheCourse] = useState("");
-
   const [ClassData, setClassData] = useState([]);
   const [TeacherData, setTeacherData] = useState([]);
 
@@ -39,6 +39,7 @@ const AddCourse = () => {
       });
       const jsonData = response.data;
       setClassData(jsonData.data); // لتغيير القيمة
+      console.log(jsonData);
     };
     fetchClassData().catch((error) => {
       console.log(error);

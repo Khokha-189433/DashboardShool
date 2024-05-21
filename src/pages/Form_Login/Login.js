@@ -3,7 +3,8 @@ import Profile from "../Imags/profile.png";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-const url = "http://127.0.0.1:3010";
+import url from "../../App.js";
+
 
 let token = null;
 

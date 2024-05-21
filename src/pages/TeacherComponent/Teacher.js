@@ -13,14 +13,14 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import HeaderList from "../header&list/HeaderList.js";
 import axios from "axios";
+import url from "../../App.js";
 
-const url = "http://127.0.0.1:3010";
 function Teacher() {
   // const [isDeleting, setIsDeleting] = useState(false);
   const [userData, setUserData] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(`${url}/teacher`,{
+      const response = await fetch(`${url}/teacher`, {
         headers: {
           authorization: sessionStorage.getItem("Token"),
         },
@@ -75,48 +75,50 @@ function Teacher() {
           <SectionWrapper>
             <Seaction></Seaction>
             <div className="section-items">
-              {userData ?userData.map((teacher) => (
-                <div className="section-item" key={teacher.teacher_id}>
-                  <div className="cards">
-                    <img
-                      className="section-items-image"
-                      src={url + "/" + teacher.photo}
-                      alt={teacher.name}
-                    />
-                    <div className="section-item-content">
-                      <h4 className="section-item-title1">{teacher.name}</h4>
-                      <Box sx={{ flexGrow: 1 }}>
-                        <Grid container spacing={2} columns={16}>
-                          <Grid item xs={8}>
-                            <Button
-                              variant="outlined"
-                              startIcon={<DeleteIcon />}
-                              onClick={() => {
-                                deleteTeacher(teacher.teacher_id);
-                              }}
-                            >
-                              Delete
-                            </Button>
-                          </Grid>
-
-                          <Grid item xs={8}>
-                            <Link to="/EditTeacher" state={{ teacher }}>
+              {userData ? (
+                userData.map((teacher) => (
+                  <div className="section-item" key={teacher.teacher_id}>
+                    <div className="cards">
+                      <img
+                        className="section-items-image"
+                        src={url + "/" + teacher.photo}
+                        alt={teacher.name}
+                      />
+                      <div className="section-item-content">
+                        <h4 className="section-item-title1">{teacher.name}</h4>
+                        <Box sx={{ flexGrow: 1 }}>
+                          <Grid container spacing={2} columns={16}>
+                            <Grid item xs={8}>
                               <Button
                                 variant="outlined"
-                                endIcon={<ModeEditOutlineIcon />}
+                                startIcon={<DeleteIcon />}
+                                onClick={() => {
+                                  deleteTeacher(teacher.teacher_id);
+                                }}
                               >
-                                Edit
+                                Delete
                               </Button>
-                            </Link>
+                            </Grid>
+
+                            <Grid item xs={8}>
+                              <Link to="/EditTeacher" state={{ teacher }}>
+                                <Button
+                                  variant="outlined"
+                                  endIcon={<ModeEditOutlineIcon />}
+                                >
+                                  Edit
+                                </Button>
+                              </Link>
+                            </Grid>
                           </Grid>
-                        </Grid>
-                      </Box>
+                        </Box>
+                      </div>
                     </div>
                   </div>
-                </div>
-              )
-            ) : <p>
-              there is no teachers</p>}
+                ))
+              ) : (
+                <p>there is no teachers</p>
+              )}
             </div>
           </SectionWrapper>
         </ContainerPage>

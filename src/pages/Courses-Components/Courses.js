@@ -12,10 +12,12 @@ import SectionWrapper from "../Section-Wrapper/SectionWrapper.js";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import url from "../../App.js"
 //////////////////////////////////
 
 const Courses = () => {
-  const url = "http://127.0.0.1:3010";
+
+  let  LinkButton= '/Playlist'
   ///// for Show the class
   const [ClassData, setClassData] = useState([]);
   useEffect(() => {
@@ -88,20 +90,33 @@ const Courses = () => {
           <Seaction title="play List"></Seaction>
           <div className="section-header-items">
             {/* -------cards ------------- */}
+
             {CoursesData.map((course) => (
-              <CardPl image={photo} title="title framework" NameButtun="Open" />
+              <div key={course.course_id} className="Class-Course">
+                <CardPl
+                  image={url + "/" + course.photo}
+                  title={course.title}
+                  price={course.course_fee}
+                  class={course.class.name}
+                  teacher={course.teacher.name}
+                  aboutCourse={course.about_the_course}
+                  link={course.LinkButton}
+                  NameButtun="Open"
+                />
+              </div>
             ))}
 
-            {/* ===================================== */}
+            {/* =========================== */}
             {/* -------cards ------------- */}
           </div>
         </SectionWrapper>
         <br />
         <SectionWrapper>
+          {/* -------class ------------- */}
           <Seaction title="Class"></Seaction>
           <div className="section-Class">
             {ClassData.map((event) => (
-              <div key={event.class_id} className="Class-Course">
+              <div key={event.class_id} C>
                 <CardPl
                   id={event.class_id}
                   title={event.name}
@@ -110,6 +125,7 @@ const Courses = () => {
               </div>
             ))}
           </div>
+          {/* -------class ------------- */}
         </SectionWrapper>
       </div>
     </>

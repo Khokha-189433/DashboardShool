@@ -7,12 +7,13 @@ import Button from "@mui/material/Button";
 import axios from "axios";
 import HeaderList from "../header&list/HeaderList";
 import SendIcon from "@mui/icons-material/Send";
+import url from "../../App.js";
+
 //////////////////
 
 
 const AddClass = () => {
   const [NameC, setName] = useState("");
-  const url = "http://127.0.0.1:3010";
   const handleTitleChange = (event) => {
     setName(event.target.value);
   };

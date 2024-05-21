@@ -8,9 +8,10 @@ import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 import HeaderList from "../header&list/HeaderList";
+import url from "../../App.js";
 
 let teacher_photo = null;
-const url = "http://127.0.0.1:3010";
+
 
 const EditTeacher = (props) => {
   const [image, setImage] = useState(null);

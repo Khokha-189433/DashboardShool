@@ -10,11 +10,14 @@ import DataTeacher from "./pages/TeacherComponent/DataTeacher.js";
 import CardData from "./pages/TeacherComponent/CardData.js";
 //////////////// course /////////////////////
 import Courses from "./pages/Courses-Components/Courses.js";
- import AddClass  from './pages/Courses-Components/AddClass.js'
- import  AddCourse from './pages/Courses-Components/AddCourse.js'
+import AddClass from "./pages/Courses-Components/AddClass.js";
+import AddCourse from "./pages/Courses-Components/AddCourse.js";
+import PlayList from "./pages/Courses-Components/PlayList.js";
 //////////////// course /////////////////////
 import Start from "./pages/Start/Start.js";
 import LogOutPages from "./pages/ContextToken/LogOutComponenet/LogOutPages.js";
+
+export const url = "http://127.0.0.1:3010";
 
 function App() {
   return (
@@ -36,6 +39,8 @@ function App() {
         <Route path="/courses" element={<Courses />} />
         <Route path="/AddClass" element={<AddClass />} />
         <Route path="/AddCourse" element={<AddCourse />} />
+        <Route path="/Playlist" element={<PlayList />} />
+
         {/*End Courses */}
       </Routes>
     </>
