@@ -7,7 +7,7 @@ import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import axios from "axios";
-import HeaderList from "../header&list/HeaderList";
+import HeaderList from "../../header&list/HeaderList.js";
 /////////////////////////////
 import OutlinedInput from "@mui/material/OutlinedInput";
 import InputLabel from "@mui/material/InputLabel";
@@ -16,8 +16,7 @@ import FormControl from "@mui/material/FormControl";
 ///////SELECT ////////////
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
-import url from "../../App.js";
-
+import { url } from "../../../App.js";
 
 let Course_photo = null;
 const AddCourse = () => {
@@ -96,8 +95,8 @@ const AddCourse = () => {
     formData.append("photo", Course_photo);
     formData.append("teacher_id", SelectedTeacher);
     formData.append("class_id", SelectedClass);
-    formData.append("about_the_course",AboutTheCourse);
-    formData.append("course_fee",PriceCourse);
+    formData.append("about_the_course", AboutTheCourse);
+    formData.append("course_fee", PriceCourse);
     try {
       const request = await axios.post(`${url}/course`, formData, {
         headers: {

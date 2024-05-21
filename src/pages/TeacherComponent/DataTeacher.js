@@ -7,7 +7,7 @@ import Button from "@mui/material/Button";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import axios from "axios";
 import HeaderList from "../header&list/HeaderList";
-import url from "../../App.js";
+import {url} from "../../App.js";
 
 
 

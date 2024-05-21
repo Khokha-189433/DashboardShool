@@ -3,8 +3,7 @@ import Profile from "../Imags/profile.png";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import url from "../../App.js";
-
+import {url} from "../../App.js";
 
 let token = null;
 
@@ -27,28 +26,27 @@ export default function Login() {
   ////////////////////////////////////
   async function handelSubmit(e) {
     e.preventDefault();
-      const userData = {
-        email: Email1,
-        password: password1,
-      };
+    const userData = {
+      email: Email1,
+      password: password1,
+    };
 
     try {
+      console.log(url);
       const { data } = await axios.post(`${url}/admin/login`, userData);
-      
-      sessionStorage.setItem("Token", data.data.accessToken);  
+
+      sessionStorage.setItem("Token", data.data.accessToken);
       //  localStorage.setItem("token", data.data.accessToken);
-      setState(true) 
-    }
-    
-    catch (error) {
+      setState(true);
+    } catch (error) {
       console.log(error);
     }
   }
-   useEffect(() => {
-     if (state) {
-       Navigate("/dash", { replace: true });
-     }
-   }, [state, Navigate]);
+  useEffect(() => {
+    if (state) {
+      Navigate("/dash", { replace: true });
+    }
+  }, [state, Navigate]);
   //////////////////////////////////
   return (
     <>
@@ -85,11 +83,9 @@ export default function Login() {
                   ></input>
                 </div>
                 <div className="login-button">
-                 
-                    <button type="submit" className="Butt-login">
-                      Login
-                    </button>
-                 
+                  <button type="submit" className="Butt-login">
+                    Login
+                  </button>
                 </div>
                 <p className="link">
                   <a href="#" target="_blank">

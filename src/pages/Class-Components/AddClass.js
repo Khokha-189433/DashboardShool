@@ -5,12 +5,11 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import axios from "axios";
-import HeaderList from "../header&list/HeaderList";
+import HeaderList from "../header&list/HeaderList.js";
 import SendIcon from "@mui/icons-material/Send";
-import url from "../../App.js";
+import { url } from "../../App.js";
 
 //////////////////
-
 
 const AddClass = () => {
   const [NameC, setName] = useState("");
@@ -65,7 +64,6 @@ const AddClass = () => {
                   </div>
                 )}
                 <Button
-                 
                   type="submit"
                   color="secondary"
                   className="ButtonAdd-teacher"

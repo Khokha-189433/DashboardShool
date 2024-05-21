@@ -37,7 +37,7 @@ Button {
   color: #c652dd;
 }
 
-/*  ----------------- playlist styling---------------- */
+/*  ----------------- course styling---------------- */
 
 .section-header-item-images {
   width: 100%;
@@ -55,7 +55,7 @@ Button {
   font-size: 17px;
   color: white;
   text-align: center;
-  margin-top: -16px
+  margin-top: -16px;
 }
 .section-header-items {
   display: flex;
@@ -82,7 +82,40 @@ Button {
   display: flex;
   flex: 0 25%;
 }
-P, span{
-   color: #e7c3ee;
+P,
+span {
+  color: #e7c3ee;
 }
+
+/* ////////////showDataCourse///////////////// */
+.showDataCourse {
+  display: inline;
+  font-size: small;
+  font-size: 22px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+.showDataCourse h4 {
+  color: #e7c3ee;
+  margin-top: 10px;
+}
+.showDataCourse h4 span {
+  color: rgb(180, 121, 234);
+}
+
+/* ///////////// card unit  /////////// */
+.Card-Unit{
+  display: flex;
+ /* justify-items: center; */
+  /* flex-wrap: wrap; */
+  background-color: #27292a;
+}
+.ButtonAddUnit Button {
+  background-color: #c652dd;
+  color: white;
+  width: 20%;
+  height: 60%;
+  margin-left: 60rem;
+  margin-top: -7rem;
+}
+
 

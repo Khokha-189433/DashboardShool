@@ -9,10 +9,10 @@ import EditTeacher from "./pages/TeacherComponent/EditTeacher.js";
 import DataTeacher from "./pages/TeacherComponent/DataTeacher.js";
 import CardData from "./pages/TeacherComponent/CardData.js";
 //////////////// course /////////////////////
-import Courses from "./pages/Courses-Components/Courses.js";
-import AddClass from "./pages/Courses-Components/AddClass.js";
-import AddCourse from "./pages/Courses-Components/AddCourse.js";
-import PlayList from "./pages/Courses-Components/PlayList.js";
+import Courses from "./pages/Courses-Components/Courses/Courses.js";
+import AddClass from "./pages/Class-Components/AddClass.js";
+import AddCourse from "./pages/Courses-Components/Course/AddCourse.js";
+import Course from "./pages/Courses-Components/Course/Course.js";
 //////////////// course /////////////////////
 import Start from "./pages/Start/Start.js";
 import LogOutPages from "./pages/ContextToken/LogOutComponenet/LogOutPages.js";
@@ -39,7 +39,7 @@ function App() {
         <Route path="/courses" element={<Courses />} />
         <Route path="/AddClass" element={<AddClass />} />
         <Route path="/AddCourse" element={<AddCourse />} />
-        <Route path="/Playlist" element={<PlayList />} />
+        <Route path="/Course" element={<Course />} />
 
         {/*End Courses */}
       </Routes>
