@@ -9,30 +9,31 @@ import { url } from "../../../App.js";
 import HeaderList from "../../header&list/HeaderList.js";
 import { useLocation } from "react-router-dom";
 
-const AddUnit = () => {
-  const course_id = useLocation().state;
-  console.log(course_id);
+const EditUnit = () => {
+    
+  const unit_id = useLocation().state.unit.unit_id;
 
-  const [NameUnit, setNameUnit] = useState("");
-  const [NumberUnit, setNumberUnit] = useState("");
+  const course_id = useLocation().state.course_id;
+  const [editNameUnit, seteditNameUnit] = useState("");
+  const [editNumberUnit, seteditNumberUnit] = useState("");
 
-  const handleTitleChange = (event) => {
-    setNameUnit(event.target.value);
+  const handleEditTitleChange = (event) => {
+    seteditNameUnit(event.target.value);
   };
-  const handleNumberUnitChange = (event) => {
-    setNumberUnit(event.target.value);
+  const handleEditNumberUnitChange = (event) => {
+    seteditNumberUnit(event.target.value);
   };
 
   async function handleSubmit(event) {
     event.preventDefault();
 
     const formData = new FormData(); //نقوم بإنشاء كائن FormData  =>لاحتواء اسم المستخدم وصورة المستخدم.
-    formData.append("title", NameUnit);
-    formData.append("unit_number", NumberUnit);
+    formData.append("title", editNameUnit);
+    formData.append("unit_number", editNumberUnit);
 
     try {
-      const request = await axios.post(
-        `${url}/course/${course_id}/unit`,
+      const request = await axios.put(
+        `${url}/course/${course_id}/unit/${unit_id}`,
         formData,
         {
           headers: {
@@ -55,14 +56,14 @@ const AddUnit = () => {
           <Typography color="text.secondary" className="Typography-name">
             Add Info Unit
           </Typography>
-          <CardContent>
+          <CardContent>z
             <form onSubmit={handleSubmit} className="Form-add-user">
               <label>
                 <input
                   id="standard-textarea"
                   placeholder="Unit Name"
-                  value={NameUnit}
-                  onChange={handleTitleChange}
+                  value={editNameUnit}
+                  onChange={handleEditTitleChange}
                   required
                   style={{ padding: "20px", fontSize: "20px" }}
                 />
@@ -73,15 +74,15 @@ const AddUnit = () => {
                   id="standard-textarea"
                   type="number"
                   placeholder="Unit Number"
-                  value={NumberUnit}
-                  onChange={handleNumberUnitChange}
+                  value={editNumberUnit}
+                  onChange={handleEditNumberUnitChange}
                   required
                   style={{ padding: "20px", fontSize: "20px" }}
                 />
               </label>
-              {NameUnit && (
+              {editNameUnit && (
                 <div className="user-info">
-                  <h3>{NameUnit}</h3>
+                  <h3>{editNameUnit}</h3>
                 </div>
               )}
               <Button
@@ -99,4 +100,4 @@ const AddUnit = () => {
   );
 };
 
-export default AddUnit;
+export default EditUnit;

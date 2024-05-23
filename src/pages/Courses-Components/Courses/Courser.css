@@ -95,27 +95,38 @@ span {
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 .showDataCourse h4 {
-  color: #e7c3ee;
+  color: #a35db1;
   margin-top: 10px;
+  border-bottom: 1.3px solid rgb(190, 173, 206);
+  text-transform: lowercase;
 }
-.showDataCourse h4 span {
-  color: rgb(180, 121, 234);
+.showDataCourse span {
+  text-transform: uppercase;
 }
 
 /* ///////////// card unit  /////////// */
-.Card-Unit{
+.CardUnit {
   display: flex;
- /* justify-items: center; */
-  /* flex-wrap: wrap; */
-  background-color: #27292a;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  text-align: center;
+  
 }
-.ButtonAddUnit Button {
+.CardUnit h2 {
+  color: #a254b1;
+}
+.ButtonUnit Button {
   background-color: #c652dd;
   color: white;
-  width: 20%;
-  height: 60%;
-  margin-left: 60rem;
-  margin-top: -7rem;
+  padding: 5px;
+  font-size: 10px;
+  margin: 10px;
 }
-
-
+.ButtonAdd Button {
+  background-color: #81438d;
+  color: rgb(207, 164, 223);
+  padding: 3px;
+  font-size: 20px;
+  margin-left: 90%;
+  margin-top: -3.9rem;
+}

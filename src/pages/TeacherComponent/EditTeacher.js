@@ -8,10 +8,9 @@ import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 import HeaderList from "../header&list/HeaderList";
-import {url} from "../../App.js";
+import { url } from "../../App.js";
 
 let teacher_photo = null;
-
 
 const EditTeacher = () => {
   const [image, setImage] = useState(null);
@@ -85,7 +84,7 @@ const EditTeacher = () => {
                   required
                 />
                 {<CloudUploadIcon />}
-                Add pictures teacher
+                pictures
               </label>
 
               <label>

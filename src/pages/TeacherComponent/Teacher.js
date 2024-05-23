@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import HeaderList from "../header&list/HeaderList.js";
 import axios from "axios";
-import {url} from "../../App.js";
+import { url } from "../../App.js";
 
 function Teacher() {
   // const [isDeleting, setIsDeleting] = useState(false);
@@ -39,7 +39,7 @@ function Teacher() {
     try {
       const response = await axios.delete(`${url}/teacher/${id}`, {
         headers: {
-          authorization: localStorage.getItem("Token"),
+          authorization: sessionStorage.getItem("Token"),
         },
       });
       console.log("User deleted successfully:", response.data); // Handle successful deletion
@@ -59,7 +59,7 @@ function Teacher() {
         <ContainerPage>
           <div className="hero-main">
             <h5 className="hero-title">
-              <em>T</em>eacher{" "}
+              <em>T</em>eachers
             </h5>
 
             <Link to="/dataTeacher">

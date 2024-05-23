@@ -43,7 +43,7 @@ const Courses = () => {
         },
       });
       const jsonData = response.data;
-      console.log(jsonData.data);
+
       setCoursesData(jsonData.data); // لتغيير القيمة
     };
     fetchData().catch((error) => {
@@ -58,7 +58,7 @@ const Courses = () => {
         <div className="hero-main">
           <div className="hero-text">
             <h5 className="hero-title">
-              <em>C</em>ourse{" "}
+              <em>C</em>ourses
             </h5>
             <Link to="/AddCourse">
               <Button variant="outlined" startIcon={<AddIcon />}>
@@ -104,11 +104,10 @@ const Courses = () => {
           <Seaction title="Class"></Seaction>
           <div className="section-Class">
             {ClassData.map((event) => (
-              <div key={event.class_id} C>
+              <div key={event.class_id} >
                 <ClassCard
                   id={event.class_id}
                   title={event.name}
-                  NameButtun="Delete"
                 />
               </div>
             ))}

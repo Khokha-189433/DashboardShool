@@ -3,9 +3,7 @@ import HeaderList from "../../header&list/HeaderList.js";
 /////////////////////////
 import Seaction from "../../sectionHeader/Seaction.js";
 import SectionWrapper from "../../Section-Wrapper/SectionWrapper.js";
-import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 import { url } from "../../../App.js";
@@ -47,7 +45,6 @@ const Course = () => {
             </h5>
             <div className="showDataCourse" key={CourseData.course_id}>
               <h4>
-                {" "}
                 <span>name :</span>
                 {CourseData.title}
               </h4>
@@ -72,7 +69,7 @@ const Course = () => {
         </div>
         <SectionWrapper>
           <Seaction title="Unit"></Seaction>
-             <Unit />
+          <Unit id={course_id} />
         </SectionWrapper>
       </div>
     </>

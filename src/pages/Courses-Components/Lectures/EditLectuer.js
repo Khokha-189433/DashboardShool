@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -9,30 +8,35 @@ import { url } from "../../../App.js";
 import HeaderList from "../../header&list/HeaderList.js";
 import { useLocation } from "react-router-dom";
 
-const AddUnit = () => {
-  const course_id = useLocation().state;
-  console.log(course_id);
+const EditLectuer = () => {
+  const { course_id, unit_id, lecture } = useLocation().state;
+  const { lecture_id, lecture_number, title, lecture_desc } = lecture;
 
-  const [NameUnit, setNameUnit] = useState("");
-  const [NumberUnit, setNumberUnit] = useState("");
+  const [LectureTitle, setLectureTitle] = useState(title);
+  const [LectureNumber, setLectureNumber] = useState(lecture_number);
+  const [LectureDescription, setLectureDescription] = useState(lecture_desc);
 
-  const handleTitleChange = (event) => {
-    setNameUnit(event.target.value);
+  const handleEditTitleLectureChange = (event) => {
+    setLectureTitle(event.target.value);
   };
-  const handleNumberUnitChange = (event) => {
-    setNumberUnit(event.target.value);
+  const handleEditLecturEdescChange = (event) => {
+    setLectureDescription(event.target.value);
+  };
+  const handleEditNumberLectureChange = (event) => {
+    setLectureNumber(event.target.value);
   };
 
   async function handleSubmit(event) {
     event.preventDefault();
 
     const formData = new FormData(); //نقوم بإنشاء كائن FormData  =>لاحتواء اسم المستخدم وصورة المستخدم.
-    formData.append("title", NameUnit);
-    formData.append("unit_number", NumberUnit);
+    formData.append("title", LectureTitle);
+    formData.append("lecture_number", LectureNumber);
+    formData.append("lecture_desc", LectureDescription);
 
     try {
-      const request = await axios.post(
-        `${url}/course/${course_id}/unit`,
+      const request = await axios.put(
+        `${url}/course/${course_id}/unit/${unit_id}/lecture/${lecture_id}`,
         formData,
         {
           headers: {
@@ -59,29 +63,37 @@ const AddUnit = () => {
             <form onSubmit={handleSubmit} className="Form-add-user">
               <label>
                 <input
-                  id="standard-textarea"
-                  placeholder="Unit Name"
-                  value={NameUnit}
-                  onChange={handleTitleChange}
+                  placeholder="Title Lecture"
+                  value={LectureTitle}
+                  onChange={handleEditTitleLectureChange}
                   required
                   style={{ padding: "20px", fontSize: "20px" }}
                 />
               </label>
-
               <label>
                 <input
-                  id="standard-textarea"
                   type="number"
-                  placeholder="Unit Number"
-                  value={NumberUnit}
-                  onChange={handleNumberUnitChange}
+                  placeholder=" Lecture Number"
+                  value={LectureNumber}
+                  onChange={handleEditNumberLectureChange}
                   required
                   style={{ padding: "20px", fontSize: "20px" }}
                 />
               </label>
-              {NameUnit && (
+              <label>
+                <textarea
+                  placeholder="Lectur-Edescr"
+                  value={LectureDescription}
+                  onChange={handleEditLecturEdescChange}
+                  required
+                  style={{ padding: "20px", fontSize: "20px", width: "28rem" }}
+                />
+              </label>
+              {LectureTitle && (
                 <div className="user-info">
-                  <h3>{NameUnit}</h3>
+                  <h3>{LectureTitle}</h3>
+                  <h3>{LectureNumber}</h3>
+                  <h3>{LectureDescription}</h3>
                 </div>
               )}
               <Button
@@ -89,7 +101,7 @@ const AddUnit = () => {
                 color="secondary"
                 className="ButtonAdd-teacher"
               >
-                Add
+                Edit
               </Button>
             </form>
           </CardContent>
@@ -99,4 +111,4 @@ const AddUnit = () => {
   );
 };
 
-export default AddUnit;
+export default EditLectuer;
