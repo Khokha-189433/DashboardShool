@@ -5,7 +5,7 @@ import HeaderList from "../../header&list/HeaderList.js";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 import { url } from "../../../App.js";
-import LectureComponent from "./LectureComponent.js";
+import LectureComponent from "./LectureComponent.js"; 
 
 const UnitD = () => {
   const course_id = useLocation().state.course_id;
@@ -53,7 +53,7 @@ const UnitD = () => {
           </div>
         </div>
         <SectionWrapper>
-          <Seaction title="Lecture"></Seaction>
+          <Seaction title="Lectures"></Seaction>
           <LectureComponent
             unit_id={unit_id}
             course_id={course_id}

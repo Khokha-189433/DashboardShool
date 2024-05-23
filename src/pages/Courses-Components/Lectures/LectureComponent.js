@@ -53,18 +53,22 @@ const LectureComponent = (props) => {
               <Card variant="outlined">
                 <CardContent>
                   <Typography color="text.secondary">
-                    <span>Unit Title :</span> {lecture.title}
+                    <span style={{ wordSpacing: "10px" }}>Unit Title :</span>{" "}
+                    {lecture.title}
                   </Typography>
                   <Typography sx={{ mb: 1.0 }} color="text.secondary">
-                    <span style={{}}>Lecture Number :</span>
+                    <span style={{ wordSpacing: "10px" }}>
+                      Lecture Number :
+                    </span>
                     {lecture.lecture_number}
                   </Typography>
                   <Typography sx={{ mb: 1.0 }} color="text.secondary">
-                    <span>lecture_desc :</span> {lecture.lecture_desc}
+                    <span style={{ wordSpacing: "10px" }}>lecture_desc :</span>{" "}
+                    {lecture.lecture_desc}
                   </Typography>
                 </CardContent>
                 <CardActions className="ButtonUnit">
-                  <Link to="/" state={{}}>
+                  <Link to="/Lecture" state={{ lecture , unit_id, course_id }}>
                     <Button
                       size="small"
                       startIcon={<OpenInNewOutlinedIcon />}
