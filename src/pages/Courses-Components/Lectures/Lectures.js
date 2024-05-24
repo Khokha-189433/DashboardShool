@@ -13,7 +13,7 @@ import AddLecture from "./AddLecture";
 import axios from "axios";
 import { url } from "../../../App";
 
-const LectureComponent = (props) => {
+const Lectures = (props) => {
   const unit_id = props.unit_id;
   const course_id = props.course_id;
   console.log(unit_id);
@@ -47,40 +47,38 @@ const LectureComponent = (props) => {
             <Button startIcon={<AddOutlinedIcon />}>Add </Button>
           </CardActions>
         </Link>
-        {LectuerData.map((lecture) => (
-          <div className="CardUnit" key={lecture.lecture_id}>
-            <div style={{ width: "270px", margin: "10px" }}>
-              <Card variant="outlined">
-                <CardContent>
-                  <Typography color="text.secondary">
-                    <span style={{ wordSpacing: "10px" }}>Unit Title :</span>{" "}
-                    {lecture.title}
-                  </Typography>
-                  <Typography sx={{ mb: 1.0 }} color="text.secondary">
-                    <span style={{ wordSpacing: "10px" }}>
-                      Lecture Number :
-                    </span>
-                    {lecture.lecture_number}
-                  </Typography>
-                  <Typography sx={{ mb: 1.0 }} color="text.secondary">
-                    <span style={{ wordSpacing: "10px" }}>lecture_desc :</span>{" "}
-                    {lecture.lecture_desc}
-                  </Typography>
+
+        <div className="Cards-Lecture">
+          {LectuerData.map((lecture) => (
+            <div key={lecture.lecture_id}>
+              <div variant="outlined" className="Card_Lecture">
+                <CardContent className="style-H-Lecture">
+                  <h2
+                    color="text.secondary"
+                  >
+                    Title :{lecture.title}
+                  </h2>
+                  <h4
+                    sx={{ mb: 1.0 }}
+                    color="text.secondary"
+                  >
+                    Number :{lecture.lecture_number}
+                  </h4>
+                  <h6
+                    sx={{ mb: 1.0 }}
+                    color="text.secondary"
+                  
+                  >
+                    lecture_desc :{lecture.lecture_desc}
+                  </h6>
                 </CardContent>
-                <CardActions className="ButtonUnit">
-                  <Link to="/Lecture" state={{ lecture , unit_id, course_id }}>
-                    <Button
-                      size="small"
-                      startIcon={<OpenInNewOutlinedIcon />}
-                      style={{ width: "10px" }}
-                    >
-                      Open
-                    </Button>
+      
+                <CardActions className="ButtonLecture">
+                  <Link to="/Lecture" state={{ lecture, unit_id, course_id }}>
+                    <Button startIcon={<OpenInNewOutlinedIcon />}>Open</Button>
                   </Link>
                   <Button
-                    size="small"
                     startIcon={<DeleteIcon />}
-                    style={{ width: "10px" }}
                     // onClick={() => {
                     //   deleteUnit(course_id, unit.unit_id);
                     // }}
@@ -91,22 +89,18 @@ const LectureComponent = (props) => {
                     to="/EditLectuer"
                     state={{ course_id, unit_id, lecture }}
                   >
-                    <Button
-                      size="small"
-                      startIcon={<AutoFixNormalOutlinedIcon />}
-                      style={{ width: "10px" }}
-                    >
+                    <Button startIcon={<AutoFixNormalOutlinedIcon />}>
                       Edit
                     </Button>
                   </Link>
                 </CardActions>
-              </Card>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </>
   );
 };
 
-export default LectureComponent;
+export default Lectures;

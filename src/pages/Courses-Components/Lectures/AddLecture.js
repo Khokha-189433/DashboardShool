@@ -11,9 +11,9 @@ import { useLocation } from "react-router-dom";
 
 const AddLecture = () => {
    const Course_id = useLocation().state.course_id;
-   const unit_id = useLocation().state.unit_Id;
-  //  console.log(unit_id);
-  //  console.log(Course_id);
+   const unit_id = useLocation().state.unit_id;
+   console.log(unit_id);
+   console.log(Course_id);
 
    const [TitleLecture, setTitleLecture] = useState('');
    const [LectureNumber, setLectureNumber] = useState('');

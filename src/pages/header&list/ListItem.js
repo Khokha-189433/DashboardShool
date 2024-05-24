@@ -8,18 +8,20 @@ import ListItemText from '@mui/material/ListItemText';
 const ListItems = (props) => {
   return (
     <>
-    <ListItem  disablePadding >
-                <ListItemButton>
-                <ListItemText   className='Item'>
-                    <ListItemIcon>
-                    <div className="Logo-Icon">{props.children}</div>
-                    </ListItemIcon>
-                    {props.namelist}
-                    </ListItemText>
-                </ListItemButton>
-     </ListItem>
+      <ListItem disablePadding>
+        <ListItemButton>
+          <div className="list" >
+            <h3 >
+              <ListItemIcon>
+                <div className="Logo-Icon">{props.children}</div>
+              </ListItemIcon>
+              {props.namelist}
+            </h3>
+          </div>
+        </ListItemButton>
+      </ListItem>
     </>
-  )
+  );
 }
 
 export default ListItems

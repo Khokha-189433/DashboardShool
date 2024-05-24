@@ -1,101 +1,101 @@
 /* style card  */
 
-.section-items{
-    display: flex;
-    justify-content:space-between ;
-    flex-wrap: wrap ;
- }
- .section-item{
-    flex: 1 25%;
- }
- .cards{
-    background-color: #27292a;
-    border-radius: 20px;
-    padding: 30px;
-    margin: 10px;
-    align-items:center;
- }
- .section-item-title1{
-    font-size: 20px;
-    color: rgba(255, 255, 255, 0.753) ;
-    text-align: center;
-    text-transform: uppercase;
- }
-.section-items-image{
-    width: 100%;
-    align-items: center;
-    border-radius: 5%;
-    margin-bottom:15px ;
-    height: 15rem;
-    
- }
-
-.section-item-content Button{
-    background-color: #d94ef5d0;
-    color: white;
-    margin: 19px 30px 0 0 ;
-    padding: 6px;
-    width: 100%;
-    border: none;
- }
- /* .section-item-content Button ::hover{
-   background: #27292a;
-   color: aliceblue;
-   border: none;
- } */
-.hero-main Button{
-   background-color: #d94ef5d0;
-   color: white;
-   padding: 10px ;
+.section-items {
+  justify-content: space-between;
+   display: inline-flex;
+  justify-items: center;
+  flex-wrap: wrap;
+}
+.section-item {
+   display: flex;
+  flex: 0 20%;
+}
+.cards {
+  background-color: #27292a;
+  border-radius: 20px;
+  padding: 30px;
+  margin: 10px;
+  align-items: center;
+  width: 350px;
+  height: 370px;
+}
+.section-item-title1 {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.753);
+  text-align: center;
+  text-transform: uppercase;
+}
+.section-items-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  align-items: center;
+  border-radius: 5%;
+  margin-bottom: 15px;
 }
 
+.section-item-content Button {
+  background-color: #d94ef5d0;
+  color: white;
+  margin: 19px 30px 0 0;
+  padding: 6px;
+  width: 100%;
+  border: none;
+}
+
+.hero-main Button {
+  background-color: #d94ef5d0;
+  color: white;
+  padding: 10px;
+}
 
 /* Style DataTeacher */
-.Card-Add-User{
-   margin: 14%;
-   text-align: center;
-   border-radius: 30px;
+.Card-Add-User {
+  margin: 14%;
+  text-align: center;
+  border-radius: 30px;
 }
-.Typography-name{
-   background-color: rgb(197, 134, 253);
-   text-align: center;
-   padding: 10px;
-   font-size: 100px;
-   font-weight: 900; 
+.Typography-name {
+  background-color: rgb(197, 134, 253);
+  text-align: center;
+  padding: 10px;
+  font-size: 100px;
+  font-weight: 900;
 }
-.Form-add-user{
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   padding: 12px;
-   font-size: large;
-   width: 100%;
+.Form-add-user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px;
+  font-size: large;
+  width: 100%;
 }
-.Form-add-user label{
-   padding-bottom: 12px;
+.Form-add-user label {
+  padding-bottom: 12px;
 }
-.user-info img{
-   background-color: blueviolet;
-   border-radius: 25px;
-   width: 24rem;
+.user-info img {
+  background-color: blueviolet;
+  border-radius: 25px;
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
 }
-.addPhoto{
-   clip-Path: inset(50%);
-    height: 1rem ;
-    padding: 14px;
-    overflow: hidden ;
-    position: absolute;
-    left: 0 ;
-    white-space: nowrap ;
-    /* width: 30rem ; */
-    bottom: 0;
-    white-Space: nowrap;
-    width: 1rem ;
-
+.addPhoto {
+  clip-path: inset(50%);
+  height: 1rem;
+  padding: 14px;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  white-space: nowrap;
+  /* width: 30rem ; */
+  bottom: 0;
+  white-space: nowrap;
+  width: 1rem;
 }
-.add-Photo{
-    color: rgba(154, 109, 196, 0.753);
+.add-Photo {
+  color: rgba(154, 109, 196, 0.753);
 }
-.ButtonAdd-teacher{
-   background-color:blueviolet;
+.ButtonAdd-teacher {
+  background-color: blueviolet;
 }

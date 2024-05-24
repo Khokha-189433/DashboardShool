@@ -62,7 +62,7 @@ function Teacher() {
               <em>T</em>eachers
             </h5>
 
-            <Link to="/dataTeacher">
+            <Link to="/AddTeacher">
               <Button
                 variant="outlined"
                 startIcon={<GroupAddIcon />}

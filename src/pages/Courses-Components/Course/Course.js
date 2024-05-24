@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 import { url } from "../../../App.js";
-import Unit from "../UnitComponent/Unit.js";
+import Unit from "../UnitComponent/Units.js";
 //////////////////////////////
 
 const Course = () => {
@@ -45,30 +45,30 @@ const Course = () => {
             </h5>
             <div className="showDataCourse" key={CourseData.course_id}>
               <h4>
-                <span>name :</span>
+                <span>name : </span>
                 {CourseData.title}
               </h4>
               <h4>
-                <span>Price :</span>
+                <span>Price : </span>
                 {CourseData.course_fee}
               </h4>
               <h4>
-                <span>About Course :</span>
+                <span>About Course : </span>
                 {CourseData.about_the_course}
               </h4>
               <h4>
-                <span>Class:</span>
+                <span>Class : </span>
                 {ClassData.name}
               </h4>
               <h4>
-                <span> Teacher :</span>
+                <span> Teacher : </span>
                 {TeacherData.name}
               </h4>
             </div>
           </div>
         </div>
         <SectionWrapper>
-          <Seaction title="Unit"></Seaction>
+          <Seaction title="Units"></Seaction>
           <Unit id={course_id} />
         </SectionWrapper>
       </div>

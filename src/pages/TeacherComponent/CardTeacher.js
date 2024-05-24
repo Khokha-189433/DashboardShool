@@ -9,7 +9,7 @@ import Grid from '@mui/material/Grid';
 import ModeEditOutlineIcon from '@mui/icons-material/ModeEditOutline';
 import DeleteIcon from '@mui/icons-material/Delete';
 
-const CardData = (props) => {
+const CardTeacher = (props) => {
    return (
           <>
         
@@ -43,4 +43,4 @@ const CardData = (props) => {
          )
 }
 
-export default CardData
+export default CardTeacher

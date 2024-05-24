@@ -6,13 +6,12 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import axios from "axios";
-import HeaderList from "../header&list/HeaderList";
-import {url} from "../../App.js";
-
-
+import HeaderList from "../header&list/HeaderList.js";
+import SendIcon from "@mui/icons-material/Send";
+import { url } from "../../App.js";
 
 let teacher_photo = null;
-const DataTeacher = () => {
+const AddTeacher = () => {
   const [image, setImage] = useState(null);
   const [Name, setName] = useState("");
 
@@ -40,9 +39,9 @@ const DataTeacher = () => {
           authorization: sessionStorage.getItem("Token"),
         },
       });
-      window.history.back(); 
-       const jsonData = await request.json();
-       console.log(jsonData);
+      window.history.back();
+      const jsonData = await request.json();
+      console.log(jsonData);
     } catch (error) {
       console.log(error);
     }
@@ -64,6 +63,7 @@ const DataTeacher = () => {
                   accept="image/*"
                   onChange={handleImageUpload}
                   className="addPhoto"
+                  style={{ padding: "20px", fontSize: "15px" }}
                   required
                 />
                 {<CloudUploadIcon />}
@@ -71,14 +71,13 @@ const DataTeacher = () => {
               </label>
 
               <label>
-                <TextField
+                <input
                   id="standard-textarea"
                   label="Teacher Name"
-                  multiline
                   variant="standard"
                   value={Name}
                   onChange={handleTitleChange}
-                  helperText={Name.length < 3 ? "Most be more than 3 char" : ""}
+                  style={{ padding: "20px", fontSize: "20px" }}
                   required
                 />
               </label>
@@ -92,6 +91,7 @@ const DataTeacher = () => {
                 type="submit"
                 color="secondary"
                 className="ButtonAdd-teacher"
+                endIcon={<SendIcon />}
               >
                 إضافة
               </Button>
@@ -103,5 +103,4 @@ const DataTeacher = () => {
   );
 };
 
-export default DataTeacher;
-
+export default AddTeacher;

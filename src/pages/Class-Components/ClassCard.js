@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "@mui/material";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
+import { GridDeleteIcon } from "@mui/x-data-grid";
 import axios from "axios";
 import { url } from "../../App";
 const ClassCard = (props) => {
@@ -23,21 +24,30 @@ const ClassCard = (props) => {
   return (
     <>
       <div className="section-header-item">
-        <div className="card" id={props.id}>
-          <img className="section-header-item-images" src={props.image} />
+        <div className="card-class" id={props.id}>
           <div className="section-header-item-content">
-            <h4 className="section-header-item-title">
-              {props.title} <br />
-            </h4>
-            
-            <Box sx={{ flexGrow: 1 }}>
-              <Grid container spacing={8} columns={8}>
-                <Grid item xs={8}>
-                    <Button onClick={()=>{
-                      deleteClass(props.id);}} >Delete</Button> 
-                </Grid>
+            <Grid container spacing={2} columns={8}>
+              <Grid item xs={8}>
+                <h4
+                  className="section-item-title1"
+                  style={{ marginBottom: "-10px" }}
+                >
+                  {props.title}
+                </h4>
               </Grid>
-            </Box>
+
+              <Grid item xs={8}>
+                <Button
+                  startIcon={<GridDeleteIcon />}
+                  style={{ marginTop: "35px", height: "32px" }}
+                  onClick={() => {
+                    deleteClass(props.id);
+                  }}
+                >
+                  Delete
+                </Button>
+              </Grid>
+            </Grid>
           </div>
         </div>
       </div>

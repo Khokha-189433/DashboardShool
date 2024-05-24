@@ -130,7 +130,7 @@ const AddCourse = () => {
                   required
                 />
                 {<CloudUploadIcon />}
-                Add pictures teacher
+                   pictures 
               </label>
 
               <label>

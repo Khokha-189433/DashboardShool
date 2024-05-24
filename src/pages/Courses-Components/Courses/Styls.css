@@ -13,7 +13,6 @@
   color: white;
   border-radius: 25px;
   padding: 50px;
-  /* background:url('')no-repeat top right/cover; */
 }
 .hero-text {
   max-width: 500px;
@@ -41,7 +40,10 @@ Button {
 
 .section-header-item-images {
   width: 100%;
-  border-radius: 10px;
+  height: 200px;
+  object-fit: cover;
+  align-items: center;
+  border-radius: 5%;
   margin-bottom: 15px;
 }
 .section-header-item-content button {
@@ -52,24 +54,30 @@ Button {
   height: 60%;
 }
 .section-header-item-title {
-  font-size: 17px;
-  color: white;
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.753);
   text-align: center;
   margin-top: -16px;
+  /* text-transform: uppercase; */
 }
 .section-header-items {
-  display: flex;
+  display: inline-flex;
+  justify-items: center;
+  justify-content: space-between;
   flex-wrap: wrap;
 }
 .section-header-item {
-  flex: 1 30%;
+  margin: 10px;
+  flex: 0 30%;
 }
 
 .card {
   background-color: #27292a;
   border-radius: 20px;
-  padding: 17px;
-  margin: 7px;
+  padding: 20px;
+  align-items: center;
+  width: 350px;
+  height: 390px;
 }
 
 /* //////////// class ///////// */
@@ -86,6 +94,15 @@ P,
 span {
   color: #e7c3ee;
 }
+.card-class {
+  background-color: #27292a;
+  border-radius: 20px;
+  padding: 20px;
+  align-items: center;
+  width: 220px;
+  height: 150px;
+  margin-top: 20px;
+}
 
 /* ////////////showDataCourse///////////////// */
 .showDataCourse {
@@ -100,8 +117,10 @@ span {
   border-bottom: 1.3px solid rgb(190, 173, 206);
   text-transform: lowercase;
 }
-.showDataCourse span {
+
+span {
   text-transform: uppercase;
+  word-spacing: 10px;
 }
 
 /* ///////////// card unit  /////////// */
@@ -110,23 +129,68 @@ span {
   flex-wrap: wrap;
   margin-top: 10px;
   text-align: center;
-  
 }
-.CardUnit h2 {
+.Card_Unit {
+  background-color: #27292a;
+  border-radius: 20px;
+  padding: 20px;
+}
+.CardUnit h3 {
   color: #a254b1;
 }
 .ButtonUnit Button {
   background-color: #c652dd;
   color: white;
-  padding: 5px;
-  font-size: 10px;
-  margin: 10px;
+  width: 100%;
+  color: white;
+  height: 30px;
 }
+
 .ButtonAdd Button {
   background-color: #81438d;
-  color: rgb(207, 164, 223);
+  color: rgb(239, 216, 245);
   padding: 3px;
   font-size: 20px;
   margin-left: 90%;
   margin-top: -3.9rem;
+}
+/* /////////////Card_lecture///////////// */
+.Cards-Lecture {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+ 
+}
+.Card_Lecture {
+  background-color: #27292a;
+  border-radius: 20px;
+  padding: 14px;
+  align-items: center;
+  width: 380px;
+  height: 300px;
+  margin: 10px;
+ overflow: hidden;
+}
+.ButtonLecture Button{
+  margin-top: 3.9rem;
+  /* padding: 3px; */
+  font-size: 14px;
+  background-color: #c652dd;
+  color: white;
+  width: 100%;
+}
+.style-H-Lecture{
+
+    margin-top: 1.7rem;
+
+}
+.style-H-Lecture  h2{
+ 
+  text-align: center;
+  color: #a254b1;
+}
+.style-H-Lecture  h4 , h6{
+text-align: center;
+ color: #d5a5df;
 }

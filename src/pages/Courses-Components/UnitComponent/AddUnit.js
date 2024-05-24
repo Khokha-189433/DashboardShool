@@ -8,6 +8,7 @@ import axios from "axios";
 import { url } from "../../../App.js";
 import HeaderList from "../../header&list/HeaderList.js";
 import { useLocation } from "react-router-dom";
+import SendIcon from "@mui/icons-material/Send";
 
 const AddUnit = () => {
   const course_id = useLocation().state;
@@ -64,7 +65,7 @@ const AddUnit = () => {
                   value={NameUnit}
                   onChange={handleTitleChange}
                   required
-                  style={{ padding: "20px", fontSize: "20px" }}
+                  style={{ padding: "20px", fontSize: "15px" }}
                 />
               </label>
 
@@ -76,7 +77,7 @@ const AddUnit = () => {
                   value={NumberUnit}
                   onChange={handleNumberUnitChange}
                   required
-                  style={{ padding: "20px", fontSize: "20px" }}
+                  style={{ padding: "20px", fontSize: "15px" }}
                 />
               </label>
               {NameUnit && (
@@ -88,6 +89,7 @@ const AddUnit = () => {
                 type="submit"
                 color="secondary"
                 className="ButtonAdd-teacher"
+                endIcon={<SendIcon />}
               >
                 Add
               </Button>

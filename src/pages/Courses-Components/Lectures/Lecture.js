@@ -21,7 +21,7 @@ const Lecture = () => {
             </h5>
             <div className="showDataCourse" key={""}>
               <h4>
-                <span>Title :</span>
+                <span>Title : </span>
                 {/* {showUnitData.title} */}
               </h4>
               <h4>

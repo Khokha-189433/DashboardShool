@@ -170,9 +170,7 @@ const HeaderList = () => {
                 </ListItems>{" "}
               </Link>
               <Link to="/courses">
-                {" "}
                 <ListItems namelist="Courses">
-                  {" "}
                   <BiSolidGraduation className="Logo-Icon" />{" "}
                 </ListItems>{" "}
               </Link>
