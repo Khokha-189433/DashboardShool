@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "@mui/material";
-import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
 import DeleteIcon from "@mui/icons-material/Delete";
 import OpenInNewOutlinedIcon from "@mui/icons-material/OpenInNewOutlined";
 import AutoFixNormalOutlinedIcon from "@mui/icons-material/AutoFixNormalOutlined";
@@ -38,6 +36,27 @@ const Lectures = (props) => {
       console.log(error);
     });
   }, []);
+
+
+
+    ///////////////Delete Lecture//////////////////////
+    async function deleteLectuer(lecture, course_id, unit_id) {
+      try {
+        const response = await axios.delete(
+          `${url}/course/${course_id}/unit/${unit_id}/lecture/${lecture}`,
+          {
+            headers: {
+              authorization: sessionStorage.getItem("Token"),
+            },
+          }
+        );
+        console.log("User deleted successfully:", response.data); // Handle successful deletion
+        // Update UI to reflect the deletion (optional)
+      } catch (error) {
+        console.error("Error deleting user:", error);
+        // Handle errors (e.g., display an error message to the user)
+      }
+    }
 
   return (
     <>
@@ -74,14 +93,20 @@ const Lectures = (props) => {
                 </CardContent>
       
                 <CardActions className="ButtonLecture">
+
                   <Link to="/Lecture" state={{ lecture, unit_id, course_id }}>
                     <Button startIcon={<OpenInNewOutlinedIcon />}>Open</Button>
                   </Link>
+
                   <Button
                     startIcon={<DeleteIcon />}
-                    // onClick={() => {
-                    //   deleteUnit(course_id, unit.unit_id);
-                    // }}
+                    onClick={() => {
+                     deleteLectuer(
+                      lecture.lecture_id,
+                       course_id,
+                       unit_id
+                     );
+                    }}
                   >
                     delete
                   </Button>

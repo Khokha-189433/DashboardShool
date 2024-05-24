@@ -3,13 +3,15 @@ import Seaction from "../../sectionHeader/Seaction.js";
 import SectionWrapper from "../../Section-Wrapper/SectionWrapper.js";
 import HeaderList from "../../header&list/HeaderList.js";
 import { useLocation } from "react-router-dom";
+import VideoLecture from "./Vidio/VideoLecture.js";
 import axios from "axios";
 import { url } from "../../../App.js";
 
 const Lecture = () => {
 
   const { lecture, unit_id, course_id } = useLocation().state;
-  const { lecture_id, title, lecture_description, lecture_number } = lecture;
+  const { lecture_id, title, lecture_desc, lecture_number } = lecture;
+  console.log(lecture_desc);
   return (
     <>
       <HeaderList />
@@ -22,17 +24,23 @@ const Lecture = () => {
             <div className="showDataCourse" key={""}>
               <h4>
                 <span>Title : </span>
-                {/* {showUnitData.title} */}
+                {title}
               </h4>
               <h4>
                 <span> Lecture number : </span>
-                {/* {showUnitData.unit_number} */}
+                {lecture_number}
+              </h4>
+              <h4>
+                <span> lecture Description : </span>
+                {lecture_desc}
               </h4>
             </div>
           </div>
         </div>
         <SectionWrapper>
-          <Seaction title="Video"></Seaction>
+          <Seaction title="Video">
+           <VideoLecture ></VideoLecture>
+          </Seaction>
         </SectionWrapper>
       </div>
     </>
