@@ -28,8 +28,9 @@ const Videos = (props) => {
         }
       );
       const { size, url: video_url, title } = response.data.data;
+
       const finalVideoUrl = new URL(video_url, url).href;
-      console.log("Video URL:", finalVideoUrl); // Debugging output
+
       setVideo(finalVideoUrl);
       setTitleVideo(title); // لتغيير القيمة
     };
