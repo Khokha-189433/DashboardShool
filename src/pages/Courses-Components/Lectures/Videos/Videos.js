@@ -14,9 +14,8 @@ const Videos = (props) => {
   const { lecture, unit_id, course_id } = props.id;
   const { lecture_id } = lecture;
 
-  const [video, setVideo] = useState(null);
+  const [video, setVideo] = useState("");
   const [TitleVideo, setTitleVideo] = useState("");
-  
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
@@ -29,8 +28,9 @@ const Videos = (props) => {
         }
       );
       const { size, url: video_url, title } = response.data.data;
-
-      setVideo(url + "/" + video_url);
+      const finalVideoUrl = new URL(video_url, url).href;
+      console.log("Video URL:", finalVideoUrl); // Debugging output
+      setVideo(finalVideoUrl);
       setTitleVideo(title); // لتغيير القيمة
     };
     fetchData().catch((error) => {
@@ -50,9 +50,9 @@ const Videos = (props) => {
           <div key={lecture.lecture_id}>
             <div variant="outlined" className="Card_Lecture">
               <CardContent className="style-H-Lecture">
-                <h1 color="text.secondary">Title :{setTitleVideo.title}</h1>
-                <video controls autoPlay loop muted>
-                  <source src={video} type="video/mp4"></source>
+                <h1 color="text.secondary">Title: {TitleVideo}</h1>
+                <video key={video} controls autoPlay loop muted>
+                  <source src={video} type="video/mp4" />
                 </video>
               </CardContent>
 
