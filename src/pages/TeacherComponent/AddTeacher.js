@@ -20,8 +20,8 @@ const AddTeacher = () => {
   };
   const handleImageUpload = (event) => {
     if (event.target.files && event.target.files[0]) {
-      //    شرط اذا كان العنصر يلي بدي دخله من نوع File صورة
-      setImage(URL.createObjectURL(event.target.files[0]));
+      //    شرط اذ كان العنصر يلي بدي دخله من نوع File صورة
+      setImage(event.target.files[0]);
       teacher_photo = event.target.files[0];
     }
   };

@@ -3,7 +3,7 @@ import Seaction from "../../sectionHeader/Seaction.js";
 import SectionWrapper from "../../Section-Wrapper/SectionWrapper.js";
 import HeaderList from "../../header&list/HeaderList.js";
 import { useLocation } from "react-router-dom";
-import VideoLecture from "./Vidio/VideoLecture.js";
+import Videos from './Videos/Videos.js'
 import axios from "axios";
 import { url } from "../../../App.js";
 
@@ -11,7 +11,7 @@ const Lecture = () => {
 
   const { lecture, unit_id, course_id } = useLocation().state;
   const { lecture_id, title, lecture_desc, lecture_number } = lecture;
-  console.log(lecture_desc);
+  // console.log(lecture_desc);
   return (
     <>
       <HeaderList />
@@ -38,9 +38,8 @@ const Lecture = () => {
           </div>
         </div>
         <SectionWrapper>
-          <Seaction title="Video">
-           <VideoLecture ></VideoLecture>
-          </Seaction>
+          <Seaction title="Videos"> </Seaction>
+          <Videos id={{lecture, unit_id, course_id}}></Videos>
         </SectionWrapper>
       </div>
     </>

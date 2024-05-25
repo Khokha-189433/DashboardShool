@@ -19,6 +19,7 @@ import Unit from "./pages/Courses-Components/UnitComponent/Unit.js";
 import AddLecture from "./pages/Courses-Components/Lectures/AddLecture.js";
 import EditLectuer from "./pages/Courses-Components/Lectures/EditLectuer.js";
 import Lecture from "./pages/Courses-Components/Lectures/Lecture.js";
+import AddVideio from "./pages/Courses-Components/Lectures/Videos/AddVideio.js";
 //////////////// course /////////////////////
 import Start from "./pages/Start/Start.js";
 import LogOutPages from "./pages/ContextToken/LogOutComponenet/LogOutPages.js";
@@ -51,7 +52,8 @@ function App() {
         <Route path="/Unit" element={<Unit />} />
         <Route path="/AddLecture" element={<AddLecture />} />
         <Route path="/EditLectuer" element={<EditLectuer />} />
-        <Route path="/Lecture" element={<Lecture />} /> {/*End Courses */}
+        <Route path="/Lecture" element={<Lecture />} />
+        <Route path="/AddVideio" element={<AddVideio />} />
       </Routes>
     </>
   );
