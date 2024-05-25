@@ -11,25 +11,35 @@ import axios from "axios";
 import { url } from "../../../../App";
 
 const Videos = (props) => {
-  const { lecture, unit_id, course_id, Video } = props.id;
+  const { lecture, unit_id, course_id } = props.id;
   const { lecture_id, videos } = lecture;
 
-  const [video, setVideo] = useState(Video);
+  const [video, setVideo] = useState("");
   const [TitleVideo, setTitleVideo] = useState("");
   const [sizeVideo, setsizeVideo] = useState("");
 
   useEffect(() => {
-    
-    if(video){
-    const { size, url: video_url, title } = Video;
+    const fetchData = async () => {
+      const response = await axios.get(
+        `${url}/course/${course_id}/unit/${unit_id}/lecture/${lecture_id}/video`,
+        {
+          headers: {
+            authorization: sessionStorage.getItem("Token"),
+            Accept: "video/mp4;charset=UTF-8",
+          },
+        }
+      );
+      const { size, url: video_url, title } = response.data.data;
 
-    const finalVideoUrl = new URL(video_url, url).href;
+      const finalVideoUrl = new URL(video_url, url).href;
 
-    setVideo(finalVideoUrl);
-    setTitleVideo(title); // لتغيير القيمة
-    setsizeVideo(size);
-    }
-
+      setVideo(finalVideoUrl);
+      setTitleVideo(title); // لتغيير القيمة
+      setsizeVideo(size);
+    };
+    fetchData().catch((error) => {
+      console.log(error);
+    });
   }, []);
 
   return (
