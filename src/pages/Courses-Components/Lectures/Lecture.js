@@ -4,6 +4,7 @@ import SectionWrapper from "../../Section-Wrapper/SectionWrapper.js";
 import HeaderList from "../../header&list/HeaderList.js";
 import { useLocation } from "react-router-dom";
 import Videos from "./Videos/Videos.js";
+import PDFLecture from "./PDFComponent/PDFLecture.js";
 import axios from "axios";
 import { url } from "../../../App.js";
 
@@ -61,7 +62,11 @@ const Lecture = () => {
         </div>
         <SectionWrapper>
           <Seaction title="Videos"> </Seaction>
-          <Videos id={{ lecture, unit_id, course_id, Video }}></Videos>
+          <Videos id={{ lecture, unit_id, course_id }}></Videos>
+        </SectionWrapper>
+        <SectionWrapper>
+          <Seaction title="PDF"> </Seaction>
+          <PDFLecture id={{ lecture, unit_id, course_id }}></PDFLecture>
         </SectionWrapper>
       </div>
     </>

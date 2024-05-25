@@ -13,7 +13,7 @@ const AddLecture = () => {
    const Course_id = useLocation().state.course_id;
    const unit_id = useLocation().state.unit_id;
    console.log(unit_id);
-   console.log(Course_id);
+    console.log(Course_id);
 
    const [TitleLecture, setTitleLecture] = useState('');
    const [LectureNumber, setLectureNumber] = useState('');
@@ -50,7 +50,8 @@ const AddLecture = () => {
            },
          }
        );
-       console.log(request.data);
+       console.log(request.data)
+       
        window.history.back();
      } catch (error) {
        console.log(error);
