@@ -3,15 +3,37 @@ import Seaction from "../../sectionHeader/Seaction.js";
 import SectionWrapper from "../../Section-Wrapper/SectionWrapper.js";
 import HeaderList from "../../header&list/HeaderList.js";
 import { useLocation } from "react-router-dom";
-import Videos from './Videos/Videos.js'
+import Videos from "./Videos/Videos.js";
 import axios from "axios";
 import { url } from "../../../App.js";
 
 const Lecture = () => {
-
   const { lecture, unit_id, course_id } = useLocation().state;
   const { lecture_id, title, lecture_desc, lecture_number } = lecture;
-  // console.log(lecture_desc);
+  const [Video, setVideo] = useState("");
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await axios
+        .get(
+          `${url}/course/${course_id}/unit/${unit_id}/lecture/${lecture_id}`,
+          {
+            headers: {
+              authorization: sessionStorage.getItem("Token"),
+            },
+          }
+        )
+        .catch((error) => {
+          console.log(error);
+        });
+      setVideo(response.data.data.videos);
+      console.log(Video);
+    };
+    fetchData().catch((error) => {
+      console.log(error);
+    });
+  }, []);
+
   return (
     <>
       <HeaderList />
@@ -39,7 +61,7 @@ const Lecture = () => {
         </div>
         <SectionWrapper>
           <Seaction title="Videos"> </Seaction>
-          <Videos id={{lecture, unit_id, course_id}}></Videos>
+          <Videos id={{ lecture, unit_id, course_id, Video }}></Videos>
         </SectionWrapper>
       </div>
     </>

@@ -11,65 +11,65 @@ import axios from "axios";
 import { url } from "../../../../App";
 
 const Videos = (props) => {
-  const { lecture, unit_id, course_id } = props.id;
-  const { lecture_id } = lecture;
+  const { lecture, unit_id, course_id, Video } = props.id;
+  const { lecture_id, videos } = lecture;
 
-  const [video, setVideo] = useState("");
+  const [video, setVideo] = useState(Video);
   const [TitleVideo, setTitleVideo] = useState("");
+  const [sizeVideo, setsizeVideo] = useState("");
+
   useEffect(() => {
-    const fetchData = async () => {
-      const response = await axios.get(
-        `${url}/course/${course_id}/unit/${unit_id}/lecture/${lecture_id}/video`,
-        {
-          headers: {
-            authorization: sessionStorage.getItem("Token"),
-            Accept: "video/mp4;charset=UTF-8",
-          },
-        }
-      );
-      const { size, url: video_url, title } = response.data.data;
+    
+    if(video){
+    const { size, url: video_url, title } = Video;
 
-      const finalVideoUrl = new URL(video_url, url).href;
+    const finalVideoUrl = new URL(video_url, url).href;
 
-      setVideo(finalVideoUrl);
-      setTitleVideo(title); // لتغيير القيمة
-    };
-    fetchData().catch((error) => {
-      console.log(error);
-    });
+    setVideo(finalVideoUrl);
+    setTitleVideo(title); // لتغيير القيمة
+    setsizeVideo(size);
+    }
+
   }, []);
 
   return (
     <>
-      <div className="section-header-iteml">
-        <Link to="/AddVideio" state={{ course_id, unit_id, lecture_id }}>
-          <CardActions className="ButtonAdd">
-            <Button startIcon={<AddOutlinedIcon />}>Add </Button>
-          </CardActions>
-        </Link>
-        <div className="Cards-Lecture">
-          <div key={lecture.lecture_id}>
-            <div variant="outlined" className="Card_Lecture">
-              <CardContent className="style-H-Lecture">
-                <h1 color="text.secondary">Title: {TitleVideo}</h1>
-                <video key={video} controls autoPlay loop muted>
-                  <source src={video} type="video/mp4" />
-                </video>
-              </CardContent>
-
-              <CardActions className="ButtonLecture">
-                <Button
-                  startIcon={<DeleteIcon />}
-                  // onClick={() => {
-                  //   deleteLectuer(lecture.lecture_id, course_id, unit_id);
-                  // }}
-                >
-                  delete
-                </Button>
-              </CardActions>
+      <div key={videos} className="section-header-iteml">
+        {videos != null ? (
+          <div className="Cards-Video">
+            <div key={lecture.lecture_id}>
+              <div variant="outlined">
+                <div>
+                  <div className="Style-video-lectuer">
+                    <video key={video} controls>
+                      <source src={video} type="video/mp4" />
+                    </video>
+                  </div>
+                  <div className="Text-Video">
+                    <h2 style={{}}>Title: {TitleVideo}</h2>
+                    <h2>Size: {sizeVideo}</h2>
+                  </div>
+                </div>
+                <CardActions className="ButtonLecture">
+                  <Button
+                    startIcon={<DeleteIcon />}
+                    // onClick={() => {
+                    //   deleteLectuer(lecture.lecture_id, course_id, unit_id);
+                    // }}
+                  >
+                    delete
+                  </Button>
+                </CardActions>
+              </div>
             </div>
           </div>
-        </div>
+        ) : (
+          <Link to="/AddVideio" state={{ course_id, unit_id, lecture_id }}>
+            <CardActions className="ButtonAdd">
+              <Button startIcon={<AddOutlinedIcon />}>Add </Button>
+            </CardActions>
+          </Link>
+        )}
       </div>
     </>
   );

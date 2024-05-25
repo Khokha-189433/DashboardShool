@@ -7,30 +7,25 @@ import { Button } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import Lecture from "../Lecture";
 
-const AddVideio = () => {
+const AddVideo = () => {
   const { course_id, unit_id, lecture_id } = useLocation().state;
-  console.log({ course_id, unit_id, lecture_id });
 
   const [Title, setTitle] = useState("");
-  let video_file = null;
-  // const [VideoLecture, setVideoLecture] = useState(null);
+  const [Video, setVideo] = useState(null);
 
   const handleTitleVideoChange = (event) => {
     setTitle(event.target.value);
   };
   const handleVideoChange = (event) => {
-    // setVideoLecture(event.target.files[0]);
-
-    video_file = event.target.files[0];
+    setVideo(event.target.files[0]);
   };
 
   async function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(); //نقوم بإنشاء كائن FormData  =>لاحتواء اسم المستخدم وصورة المستخدم.
     formData.append("title", Title);
-    formData.append("video", video_file);
+    formData.append("video", Video);
     try {
       const request = await axios.post(
         `${url}/course/${course_id}/unit/${unit_id}/lecture/${lecture_id}/video`,
@@ -42,7 +37,7 @@ const AddVideio = () => {
           },
         }
       );
-      console.log(request.data);
+      console.log(request.data)
       window.history.back();
     } catch (error) {
       console.log(error);
@@ -102,4 +97,4 @@ const AddVideio = () => {
   );
 };
 
-export default AddVideio;
+export default AddVideo;
