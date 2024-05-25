@@ -27,7 +27,6 @@ const PDFLecture = (props) => {
         }
       );
       setPDFData(response.data.data);
-      console.log(PDFData);
     };
 
     fetchData();
