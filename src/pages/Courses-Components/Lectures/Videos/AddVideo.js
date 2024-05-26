@@ -9,8 +9,8 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 
 const AddVideo = () => {
+  
   const { course_id, unit_id, lecture_id } = useLocation().state;
-
   const [Title, setTitle] = useState("");
   const [Video, setVideo] = useState(null);
 

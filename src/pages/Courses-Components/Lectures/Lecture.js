@@ -7,11 +7,14 @@ import Videos from "./Videos/Videos.js";
 import PDFLecture from "./PDFComponent/PDFLecture.js";
 import axios from "axios";
 import { url } from "../../../App.js";
+import QuestionLecture from "./Question/QuestionLecture.js";
 
 const Lecture = () => {
   const { lecture, unit_id, course_id } = useLocation().state;
   const { lecture_id, title, lecture_desc, lecture_number } = lecture;
   const [Video, setVideo] = useState("");
+  const { pdf } = lecture;
+  console.log(pdf);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -67,6 +70,13 @@ const Lecture = () => {
         <SectionWrapper>
           <Seaction title="PDF"> </Seaction>
           <PDFLecture id={{ lecture, unit_id, course_id }}></PDFLecture>
+        </SectionWrapper>
+        <SectionWrapper>
+          <Seaction title="Questions"> </Seaction>
+
+          <QuestionLecture
+            id={{ lecture, unit_id, course_id }}
+          ></QuestionLecture>
         </SectionWrapper>
       </div>
     </>

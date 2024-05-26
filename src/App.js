@@ -21,6 +21,7 @@ import EditLectuer from "./pages/Courses-Components/Lectures/EditLectuer.js";
 import Lecture from "./pages/Courses-Components/Lectures/Lecture.js";
 import AddVideo from "./pages/Courses-Components/Lectures/Videos/AddVideo.js";
 import AddPDFLecture from "./pages/Courses-Components/Lectures/PDFComponent/AddPDFLecture.js";
+import AddQuestion from "./pages/Courses-Components/Lectures/Question/AddQuestion.js";
 //////////////// course /////////////////////
 import Start from "./pages/Start/Start.js";
 import LogOutPages from "./pages/ContextToken/LogOutComponenet/LogOutPages.js";
@@ -57,6 +58,7 @@ function App() {
         <Route path="/Lecture" element={<Lecture />} />
         <Route path="/AddVideio" element={<AddVideo />} />
         <Route path="/AddPDFLecture" element={<AddPDFLecture />} />
+        <Route path="/AddQuestion" element={<AddQuestion />} />
       </Routes>
     </>
   );

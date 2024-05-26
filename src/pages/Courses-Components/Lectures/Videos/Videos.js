@@ -25,7 +25,7 @@ const Videos = (props) => {
         {
           headers: {
             authorization: sessionStorage.getItem("Token"),
-            Accept: "video/mp4;charset=UTF-8",
+            // Accept: "video/mp4;charset=UTF-8",
           },
         }
       );
@@ -44,8 +44,14 @@ const Videos = (props) => {
 
   return (
     <>
-      <div key={videos} className="section-header-iteml">
-        {videos != null ? (
+      <div  key={videos} className="section-header-iteml">
+        {!videos ? (
+          <Link to="/AddVideio" state={{ course_id, unit_id, lecture_id }}>
+            <CardActions className="ButtonAdd">
+              <Button startIcon={<AddOutlinedIcon />}>Add </Button>
+            </CardActions>
+          </Link>
+        ) : (
           <div className="Cards-Video">
             <div key={lecture.lecture_id}>
               <div variant="outlined">
@@ -73,12 +79,6 @@ const Videos = (props) => {
               </div>
             </div>
           </div>
-        ) : (
-          <Link to="/AddVideio" state={{ course_id, unit_id, lecture_id }}>
-            <CardActions className="ButtonAdd">
-              <Button startIcon={<AddOutlinedIcon />}>Add </Button>
-            </CardActions>
-          </Link>
         )}
       </div>
     </>
