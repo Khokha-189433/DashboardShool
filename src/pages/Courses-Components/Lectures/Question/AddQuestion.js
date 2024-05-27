@@ -142,6 +142,7 @@ const AddQuestion = () => {
                 type="submit"
                 color="secondary"
                 className="ButtonAdd-teacher"
+                endIcon={<SendIcon />}
               >
                 Add
               </Button>

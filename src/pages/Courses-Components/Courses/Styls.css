@@ -223,7 +223,7 @@ h6 {
 }
 
 /* //////////////Cards-pdf///////////// */
-.Cards-pdf{
+.Cards-pdf {
   background-color: #27292a;
   border-radius: 20px;
   padding: 9px;
@@ -234,6 +234,22 @@ h6 {
 }
 
 /* //////////  redio-style //////////// */
-.redio-style{
- background-color: #deb8e5;
+.show-Question {
+  background-color: #27292a;
+  padding: 11px;
+  border-radius: 10px;
+  margin-top: 10px;
 }
+.show-Question h1{
+  color: #81438d;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.answer-style{
+  color: #cb8cd8;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  margin-left: 29px;
+  padding: 10px;
+
+  /* text-align: center; */
+}
+

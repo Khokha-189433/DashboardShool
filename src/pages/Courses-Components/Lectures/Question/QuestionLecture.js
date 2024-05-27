@@ -37,10 +37,10 @@ const QuestionLecture = (props) => {
             <Button startIcon={<AddOutlinedIcon />}>Add Question</Button>
           </CardActions>
         </Link>
-        {questions.map((question) => (
-          <div key={question.question_id} className="radio-style">
+        {questions.map((question , index) => (
+          <div key={question.question_id} className="show-Question">
             <FormControl component="fieldset">
-              <FormLabel component="legend">{question.question}</FormLabel>
+              <h1 component="legend"> {}{question.question}</h1>
               <RadioGroup
                 row
                 aria-label="quiz"
@@ -49,12 +49,15 @@ const QuestionLecture = (props) => {
                 onChange={handleRadioChange}
               >
                 {question.choices.map((choice) => (
-                  <FormControlLabel
-                    key={choice.choice_id}
-                    value={choice.choice_id}
-                    control={<Radio />}
-                    label={`${choice.choice} ${choice.is_correct ? "(Correct)" : ""}`}
-                  />
+                  // <FormControlLabel
+                  //   key={choice.choice_id}
+                  //   value={choice.choice_id}
+                  //   control={<Radio />}
+                  //   label={`${choice.choice} ${
+                  //     choice.is_correct ? "(Correct)" : "" }`
+                  //   }
+                  // />
+                  <h2 className="answer-style">{ choice.choice}</h2>
                 ))}
               </RadioGroup>
             </FormControl>

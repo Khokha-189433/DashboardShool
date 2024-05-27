@@ -7,7 +7,7 @@ import axios from "axios";
 import { url } from "../../../App.js";
 import HeaderList from "../../header&list/HeaderList.js";
 import { useLocation } from "react-router-dom";
-
+import SendIcon from "@mui/icons-material/Send";
 
 const AddLecture = () => {
    const Course_id = useLocation().state.course_id;
@@ -106,6 +106,7 @@ const AddLecture = () => {
                 type="submit"
                 color="secondary"
                 className="ButtonAdd-teacher"
+                endIcon={<SendIcon />}
               >
                 Add
               </Button>

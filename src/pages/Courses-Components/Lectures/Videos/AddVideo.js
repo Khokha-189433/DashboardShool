@@ -7,6 +7,7 @@ import { Button } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
+import SendIcon from "@mui/icons-material/Send";
 
 const AddVideo = () => {
   
@@ -86,6 +87,7 @@ const AddVideo = () => {
                 type="submit"
                 color="secondary"
                 className="ButtonAdd-teacher"
+                endIcon={<SendIcon />}
               >
                 Add
               </Button>
