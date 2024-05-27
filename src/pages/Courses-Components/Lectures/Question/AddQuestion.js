@@ -45,18 +45,15 @@ const AddQuestion = () => {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    const choicesarray = [];
-    Choices.forEach((i) => {
-      choicesarray.push(i);
-    });
-    const formData = new FormData(); //نقوم بإنشاء كائن FormData  =>لاحتواء اسم المستخدم وصورة المستخدم.
-    formData.append("question", Question);
-    formData.append("choices", choicesarray);
+
 
     try {
       const request = await axios.post(
         `${url}/course/${course_id}/unit/${unit_id}/Lecture/${lecture_id}/question`,
-        formData,
+        {
+          choices: Choices,
+          question: Question,
+        },
         {
           headers: {
             "Content-Type": "application/json",
