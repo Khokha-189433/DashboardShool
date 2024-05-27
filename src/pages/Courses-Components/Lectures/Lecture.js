@@ -10,13 +10,13 @@ import { url } from "../../../App.js";
 import QuestionLecture from "./Question/QuestionLecture.js";
 
 const Lecture = () => {
-  const { lecture, unit_id, course_id } = useLocation().state;
-  const { lecture_id, title, lecture_desc, lecture_number } = lecture;
+  const { lecture_id, unit_id, course_id } = useLocation().state;
+  const [lecture, setLecture] = useState("");
   const [Video, setVideo] = useState("");
-  const { pdf } = lecture;
-  console.log(pdf);
+  const [questions, setQuestions] = useState([]);
+  const [pdf, setPdf] = useState(null);
 
-  useEffect(() => {
+  useEffect(() => { 
     const fetchData = async () => {
       const response = await axios
         .get(
@@ -30,9 +30,22 @@ const Lecture = () => {
         .catch((error) => {
           console.log(error);
         });
-      setVideo(response.data.data.videos);
-      console.log(Video);
+      const { title, lecture_desc, lecture_number, questions, pdf, videos } =
+        response.data.data;
+      setLecture({
+        title,
+        lecture_desc,
+        lecture_number,
+        questions,
+        pdf,
+        videos,
+      });
+      setVideo(videos);
+      setQuestions(questions);
+      setPdf(pdf);
     };
+
+
     fetchData().catch((error) => {
       console.log(error);
     });
@@ -50,32 +63,41 @@ const Lecture = () => {
             <div className="showDataCourse" key={""}>
               <h4>
                 <span>Title : </span>
-                {title}
+                {lecture.title}
               </h4>
               <h4>
                 <span> Lecture number : </span>
-                {lecture_number}
+                {lecture.lecture_number}
               </h4>
               <h4>
                 <span> lecture Description : </span>
-                {lecture_desc}
+                {lecture.lecture_desc}
               </h4>
             </div>
           </div>
         </div>
         <SectionWrapper>
           <Seaction title="Videos"> </Seaction>
-          <Videos id={{ lecture, unit_id, course_id }}></Videos>
+          <Videos
+            id={{ lecture_id, unit_id, course_id }}
+          ></Videos>
         </SectionWrapper>
         <SectionWrapper>
           <Seaction title="PDF"> </Seaction>
-          <PDFLecture id={{ lecture, unit_id, course_id }}></PDFLecture>
+          <PDFLecture
+            id={{ lecture_id, unit_id, course_id, pdf }}
+          ></PDFLecture>
         </SectionWrapper>
         <SectionWrapper>
           <Seaction title="Questions"> </Seaction>
 
           <QuestionLecture
-            id={{ lecture, unit_id, course_id }}
+            id={{
+              lecture_id,
+              unit_id,
+              course_id,
+              questions,
+            }}
           ></QuestionLecture>
         </SectionWrapper>
       </div>

@@ -14,7 +14,7 @@ const AddQuestion = () => {
   const { course_id, unit_id, lecture_id } = useLocation().state;
 
   const [Question, setQuestion] = useState("");
-  const [Choices, setChoices] = useState([{ Choice: "", isCorrect: false }]);
+  const [Choices, setChoices] = useState([{ choice: "", is_correct: false }]);
 
   const handleQuestionChange = (event) => {
     // اضافة سؤال
@@ -23,29 +23,26 @@ const AddQuestion = () => {
 
   //  اضافة حقل جديد الى النص
   const handleAddAnswerChange = () => {
-    setChoices([...Choices, { Choice: "", isCorrect: false }]);
+    setChoices([...Choices, { choice: "", is_correct: false }]);
   };
 
   function handleanswercheng(index, event) {
-    const newchecedinput = [...Choices];
-    newchecedinput[index] = event.target.value;
-    setChoices(newchecedinput);
-    console.log(newchecedinput);
+    const newChoices = [...Choices];
+    newChoices[index] = { ...newChoices[index], choice: event.target.value };
+    setChoices(newChoices);
   }
   //
   const handleCheckedChange = (event, id) => {
-    const newtextinput = Choices.map((choice, index) => ({
-      choice,
+    const newChoices = Choices.map((choice, index) => ({
+      ...choice,
       is_correct: index === id ? event.target.checked : false,
     }));
 
-    setChoices(newtextinput);
-    console.log(newtextinput);
+    setChoices(newChoices);
   };
 
   async function handleSubmit(event) {
     event.preventDefault();
-
 
     try {
       const request = await axios.post(
@@ -61,8 +58,6 @@ const AddQuestion = () => {
           },
         }
       );
-      setChoices(request.data);
-      console.log(setChoices(request.data));
       window.history.back();
     } catch (error) {
       console.log(error);
@@ -108,15 +103,14 @@ const AddQuestion = () => {
               >
                 Add Answer
               </Button>
-
               {Choices.map((value, index) => (
-                <div key={index}>
+                <div>
                   <label>
                     answer {index + 1}
                     <input
                       key={index}
                       type="text"
-                      value={value.Choice}
+                      value={value.choice}
                       placeholder="answer"
                       onChange={(event) => {
                         handleanswercheng(index, event);
@@ -129,8 +123,7 @@ const AddQuestion = () => {
                   <label></label>
                   <Checkbox
                     {...label}
-                    key={index}
-                    value={value.isCorrect}
+                    checked={value.is_correct}
                     onChange={(event) => {
                       handleCheckedChange(event, index);
                     }}

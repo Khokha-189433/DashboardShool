@@ -8,39 +8,67 @@ import { url } from "../../../../App";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 
 const PDFLecture = (props) => {
-  const { lecture, unit_id, course_id } = props.id;
-  const { lecture_id } = lecture;
-  const [PDFData, setPDFData] = useState("");
+  const { lecture_id, unit_id, course_id, pdf } = props.id;
+
+  const [PDFData, setPDFData] = useState(pdf);
 
   useEffect(() => {
-    if (lecture.pdf) setPDFData(lecture.pdf);
+    const fetchData = async () => {
+      const response = await axios
+        .get(
+          `${url}/course/${course_id}/unit/${unit_id}/lecture/${lecture_id}/pdf`,
+          {
+            headers: {
+              authorization: sessionStorage.getItem("Token"),
+            },
+          }
+        )
+        .then((response) => {
+          setPDFData(response.data.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    };
+
+    fetchData();
   }, []);
 
   return (
     <>
-      <div key={PDFData.pdf_id} className="section-header-iteml">
+      <div className="section-header-iteml">
         {!PDFData ? (
-          <Link to="/AddPDFLecture" state={{ course_id, unit_id, lecture_id }}>
-            <CardActions className="ButtonAdd">
-              <Button startIcon={<AddOutlinedIcon />}>Add </Button>
-            </CardActions>
-          </Link>
+          <div>
+            <Link
+              to="/AddPDFLecture"
+              state={{ course_id, unit_id, lecture_id }}
+            >
+              <CardActions className="ButtonAdd">
+                <Button startIcon={<AddOutlinedIcon />}>Add </Button>
+              </CardActions>
+            </Link>
+          </div>
         ) : (
-          <div className="Cards-pdf">
-            <div key={"lecture.lecture_id"}>
-              <div variant="outlined">
-                <div>
-                  <div className="Style-video-lectuer"></div>
-                  <div className="Text-Video">
-                    <h2> Title: {PDFData.title} </h2>
-                    <h2> Size : {PDFData.size} </h2>
+          <div key={PDFData.pdf_id}>
+            <div className="Cards-pdf">
+              <div key={"lecture.lecture_id"}>
+                <div variant="outlined">
+                  <div>
+                    <div className="Style-video-lectuer"></div>
+                    <div className="Text-Video">
+                      <h2> Title: {PDFData.title} </h2>
+                      <h2> Size : {PDFData.size} </h2>
+                    </div>
                   </div>
+                  <CardActions className="ButtonLecture">
+                    <a href={url + "/" + PDFData.url}>
+                      <Button startIcon={<CloudUploadIcon />}>
+                        {" "}
+                        dwonload{" "}
+                      </Button>
+                    </a>
+                  </CardActions>
                 </div>
-                <CardActions className="ButtonLecture">
-                  <a href={url + "/" + PDFData.url}>
-                    <Button startIcon={<CloudUploadIcon />}> dwonload </Button>
-                  </a>
-                </CardActions>
               </div>
             </div>
           </div>

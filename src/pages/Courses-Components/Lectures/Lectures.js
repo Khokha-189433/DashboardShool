@@ -94,7 +94,7 @@ const Lectures = (props) => {
       
                 <CardActions className="ButtonLecture">
 
-                  <Link to="/Lecture" state={{ lecture, unit_id, course_id }}>
+                  <Link to="/Lecture" state={{ lecture_id:lecture.lecture_id, unit_id, course_id }}>
                     <Button startIcon={<OpenInNewOutlinedIcon />}>Open</Button>
                   </Link>
 

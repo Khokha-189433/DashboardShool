@@ -11,8 +11,7 @@ import axios from "axios";
 import { url } from "../../../../App";
 
 const Videos = (props) => {
-  const { lecture, unit_id, course_id } = props.id;
-  const { lecture_id, videos } = lecture;
+  const { lecture_id, unit_id, course_id, videos } = props.id;
 
   const [video, setVideo] = useState("");
   const [TitleVideo, setTitleVideo] = useState("");
@@ -36,6 +35,8 @@ const Videos = (props) => {
       setVideo(finalVideoUrl);
       setTitleVideo(title); // لتغيير القيمة
       setsizeVideo(size);
+
+      console.log(video, TitleVideo, sizeVideo);
     };
     fetchData().catch((error) => {
       console.log(error);
@@ -44,8 +45,8 @@ const Videos = (props) => {
 
   return (
     <>
-      <div  key={videos} className="section-header-iteml">
-        {!videos ? (
+      <div key={videos} className="section-header-iteml">
+        {!video ? (
           <Link to="/AddVideio" state={{ course_id, unit_id, lecture_id }}>
             <CardActions className="ButtonAdd">
               <Button startIcon={<AddOutlinedIcon />}>Add </Button>
@@ -53,7 +54,7 @@ const Videos = (props) => {
           </Link>
         ) : (
           <div className="Cards-Video">
-            <div key={lecture.lecture_id}>
+            <div key={lecture_id}>
               <div variant="outlined">
                 <div>
                   <div className="Style-video-lectuer">
