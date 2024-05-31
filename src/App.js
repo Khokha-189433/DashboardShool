@@ -22,11 +22,15 @@ import Lecture from "./pages/Courses-Components/Lectures/Lecture.js";
 import AddVideo from "./pages/Courses-Components/Lectures/Videos/AddVideo.js";
 import AddPDFLecture from "./pages/Courses-Components/Lectures/PDFComponent/AddPDFLecture.js";
 import AddQuestion from "./pages/Courses-Components/Lectures/Question/AddQuestion.js";
+////////////////Students////////////////////
+import Students from "./pages/Students/Students.js";
+import AddStudent from "./pages/Students/AddStudent.js";
+//////////////// add Students////////////////////
+
 //////////////// course /////////////////////
 import Start from "./pages/Start/Start.js";
 import LogOutPages from "./pages/ContextToken/LogOutComponenet/LogOutPages.js";
 import CardTeacher from "./pages/TeacherComponent/CardTeacher.js";
-import { ImageOutlined } from "@mui/icons-material";
 
 export const url = "http://127.0.0.1:3010";
 
@@ -59,6 +63,10 @@ function App() {
         <Route path="/AddVideio" element={<AddVideo />} />
         <Route path="/AddPDFLecture" element={<AddPDFLecture />} />
         <Route path="/AddQuestion" element={<AddQuestion />} />
+        {/*  students  */}
+        <Route path="/Students" element={<Students />} />
+        <Route path="/AddStudents" element={<AddStudent />} />
+        {/*  end students  */}
       </Routes>
     </>
   );

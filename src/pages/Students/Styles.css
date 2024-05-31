@@ -1,0 +1,35 @@
+.Table_Card{
+  width: 100%;
+  padding: 11px;
+  border-radius: 10px;
+  margin-top: 20px;
+
+
+  
+}
+table{
+    border-collapse: collapse;
+    width: 72rem;
+}
+
+th{
+   background-color: rgb(211, 162, 246); 
+    color: rgb(92, 44, 107);
+    padding: 10px;
+    text-align: center;
+    font-size: 25px;
+}
+td{
+   padding: 15px;
+   background-color: rgb(221, 205, 239); 
+   color: rgba(71, 42, 80, 0.775);
+   font-size: 20px;
+}
+table  th, td{
+  border: 1px solid  rgb(151, 127, 177); ;
+}
+
+tr :hover{
+    background-color: rgb(186, 146, 219);
+    color: rgb(237, 217, 255);
+}

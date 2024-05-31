@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button } from '@mui/material'
 import { useState , useContext } from 'react'
-import PhotoTeacher from "../../assets/images/images/pic-1.jpg"
+
 import './Teacherpage.css'
 ///////////////////////////////////
 import Box from '@mui/material/Box';
@@ -15,7 +15,7 @@ const CardTeacher = (props) => {
         
             <div className='section-item'>
                     <div className='cards'>
-                        <img  className='section-items-image'  src={PhotoTeacher} />  
+                        <img  className='section-items-image'  />  
                         <div  className='section-item-content'>
                             <h4 className='section-item-title1'>
                                 {props.title}

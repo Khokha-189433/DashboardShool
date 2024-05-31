@@ -12,7 +12,7 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import { BiHome , BiMessage  ,BiSolidUserAccount , BiQuestionMark, BiSolidGraduation,BiLogOut  ,BiSearch,t} from 'react-icons/bi'
+import { BiHome ,BiSolidUserAccount , BiQuestionMark, BiSolidGraduation,BiLogOut  ,BiSearch , BiUserCircle} from 'react-icons/bi'
 //////// end import properties from mui library *design*////////
 import { Link } from "react-router-dom";
 //////////////////////////////////////////////
@@ -169,11 +169,13 @@ const HeaderList = () => {
                   <BiHome className="Logo-Icon" />{" "}
                 </ListItems>{" "}
               </Link>
+
               <Link to="/courses">
                 <ListItems namelist="Courses">
                   <BiSolidGraduation className="Logo-Icon" />{" "}
                 </ListItems>{" "}
               </Link>
+
               <Link to="/teacher">
                 {" "}
                 <ListItems namelist=" Teachers">
@@ -181,14 +183,17 @@ const HeaderList = () => {
                   <BiSolidUserAccount className="Logo-Icon" />{" "}
                 </ListItems>{" "}
               </Link>
+              <Link to="/Students">
+                <ListItems namelist="Students">
+                  <BiUserCircle className="Logo-Icon" />
+                </ListItems>
+              </Link>
+
               <ListItems namelist=" About">
                 {" "}
                 <BiQuestionMark className="Logo-Icon" />
               </ListItems>
-              <ListItems namelist=" Message">
-                {" "}
-                <BiMessage className="Logo-Icon" />
-              </ListItems>
+
               <Link to="/logOut">
                 <ListItems namelist="LogOut ">
                   <BiLogOut className="Logo-Icon" />
