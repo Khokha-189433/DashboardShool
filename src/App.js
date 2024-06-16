@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 
 import Login from "./pages/Form_Login/Login.js";
-import Page from "./pages/DashBourdPages/Page.js";
+import Page from "./pages/DashBoardPages/Page.js";
 import Home from "./pages/HOMEComponent/Home.js";
 ////////////////techer///////////////////////
 import Teacher from "./pages/TeacherComponent/Teacher.js";

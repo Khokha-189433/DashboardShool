@@ -40,8 +40,16 @@ export default function Login() {
       setState(true);
     } catch (error) {
       console.log(error);
+      if(error.response!=undefined){
+        if(error.response.status==401){
+          alert("Login Failed " + error.response.data.error);
+      }
+      }else{
+        alert("Login Failed " + error.message)
+      }
     }
   }
+
   useEffect(() => {
     if (state) {
       Navigate("/dash", { replace: true });
