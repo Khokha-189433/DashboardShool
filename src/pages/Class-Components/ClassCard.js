@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import { GridDeleteIcon } from "@mui/x-data-grid";
 import axios from "axios";
-import { url } from "../../App";
+import { url } from "../../config";
 const ClassCard = (props) => {
 
   async function deleteClass(id) {

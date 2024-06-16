@@ -3,7 +3,7 @@ import Profile from "../Imags/profile.png";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import {url} from "../../App.js";
+import {url} from "../../config.js";
 
 let token = null;
 

@@ -6,7 +6,7 @@ import { useLocation } from "react-router-dom";
 import Videos from "./Videos/Videos.js";
 import PDFLecture from "./PDFComponent/PDFLecture.js";
 import axios from "axios";
-import { url } from "../../../App.js";
+import { url } from "../../../config.js";
 import QuestionLecture from "./Question/QuestionLecture.js";
 
 const Lecture = () => {

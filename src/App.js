@@ -32,7 +32,6 @@ import Start from "./pages/Start/Start.js";
 import LogOutPages from "./pages/ContextToken/LogOutComponenet/LogOutPages.js";
 import CardTeacher from "./pages/TeacherComponent/CardTeacher.js";
 
-export const url = "http://127.0.0.1:3010";
 
 function App() {
   return (

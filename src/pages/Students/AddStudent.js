@@ -8,7 +8,7 @@ import SectionWrapper from "../Section-Wrapper/SectionWrapper.js";
 //////////////////////////////
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { url } from "../../App.js";
+import { url } from "../../config.js";
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";

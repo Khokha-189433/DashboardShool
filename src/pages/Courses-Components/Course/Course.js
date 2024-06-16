@@ -6,7 +6,7 @@ import SectionWrapper from "../../Section-Wrapper/SectionWrapper.js";
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
-import { url } from "../../../App.js";
+import { url } from "../../../config.js";
 import Unit from "../UnitComponent/Units.js";
 //////////////////////////////
 

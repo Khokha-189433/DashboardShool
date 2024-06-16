@@ -4,7 +4,7 @@ import SectionWrapper from "../../Section-Wrapper/SectionWrapper.js";
 import HeaderList from "../../header&list/HeaderList.js";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
-import { url } from "../../../App.js";
+import { url } from "../../../config.js";
 import LectureComponent from "../Lectures/Lectures.js";
 
 const Unit = () => {

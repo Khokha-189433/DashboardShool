@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import HeaderList from "../../../header&list/HeaderList";
 import axios from "axios";
-import { url } from "../../../../App";
+import { url } from "../../../../config";
 import { useLocation } from "react-router-dom";
 import { Button } from "@mui/material";
 import Typography from "@mui/material/Typography";
