@@ -4,7 +4,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import axios from "axios";
-import { url } from "../../../App.js";
+import { url } from "../../../config.js";
 import HeaderList from "../../header&list/HeaderList.js";
 import { useLocation } from "react-router-dom";
 import SendIcon from "@mui/icons-material/Send";

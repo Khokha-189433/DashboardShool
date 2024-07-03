@@ -4,7 +4,7 @@ import CardActions from "@mui/material/CardActions";
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { url } from "../../../../App";
+import { url } from "../../../../config";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 
 const PDFLecture = (props) => {

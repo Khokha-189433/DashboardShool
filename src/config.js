@@ -1,1 +1,1 @@
-export const url = "http://127.0.0.1:3010"
+export const url = "https://learning-platform-back-end.onrender.com"

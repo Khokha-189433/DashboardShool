@@ -6,7 +6,7 @@ import undraw from "../../assets/undraw_onli.png"
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import {url} from "../../App.js";
+import {url} from "../../config.js";
 
 let token = null;
 
@@ -43,8 +43,16 @@ export default function Login() {
       setState(true);
     } catch (error) {
       console.log(error);
+      if(error.response!=undefined){
+        if(error.response.status==401){
+          alert("Login Failed " + error.response.data.error);
+      }
+      }else{
+        alert("Login Failed " + error.message)
+      }
     }
   }
+
   useEffect(() => {
     if (state) {
       Navigate("/dash", { replace: true });

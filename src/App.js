@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 
 import Login from "./pages/Form_Login/Login.js";
-import Page from "./pages/DashBourdPages/Page.js";
+import Page from "./pages/DashBoardPages/Page.js";
 import Home from "./pages/HOMEComponent/Home.js";
 ////////////////techer///////////////////////
 import Teacher from "./pages/TeacherComponent/Teacher.js";
@@ -32,7 +32,6 @@ import Start from "./pages/Start/Start.js";
 import LogOutPages from "./pages/ContextToken/LogOutComponenet/LogOutPages.js";
 import CardTeacher from "./pages/TeacherComponent/CardTeacher.js";
 
-export const url = "http://127.0.0.1:3010";
 
 function App() {
   return (

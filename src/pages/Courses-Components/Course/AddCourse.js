@@ -16,7 +16,7 @@ import FormControl from "@mui/material/FormControl";
 ///////SELECT ////////////
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
-import { url } from "../../../App.js";
+import { url } from "../../../config.js";
 
 let Course_photo = null;
 const AddCourse = () => {

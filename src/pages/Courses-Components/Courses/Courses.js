@@ -12,7 +12,7 @@ import SectionWrapper from "../../Section-Wrapper/SectionWrapper.js";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { url } from "../../../App.js";
+import { url } from "../../../config.js";
 //////////////////////////////////
 
 const Courses = () => {

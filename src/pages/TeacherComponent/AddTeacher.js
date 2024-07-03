@@ -8,7 +8,7 @@ import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import axios from "axios";
 import HeaderList from "../header&list/HeaderList.js";
 import SendIcon from "@mui/icons-material/Send";
-import { url } from "../../App.js";
+import { url } from "../../config";
 
 let teacher_photo = null;
 const AddTeacher = () => {

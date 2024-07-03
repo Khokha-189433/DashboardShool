@@ -9,7 +9,7 @@ import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
 import { Link } from "react-router-dom";
 import AddLecture from "./AddLecture";
 import axios from "axios";
-import { url } from "../../../App";
+import { url } from "../../../config";
 
 const Lectures = (props) => {
   const unit_id = props.unit_id;

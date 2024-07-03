@@ -10,7 +10,7 @@ import AutoFixNormalOutlinedIcon from "@mui/icons-material/AutoFixNormalOutlined
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { url } from "../../../App";
+import { url } from "../../../config";
 
 const Units = ({ id }) => {
   let course_id = id;

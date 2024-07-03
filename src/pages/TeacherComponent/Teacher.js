@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import HeaderList from "../header&list/HeaderList.js";
 import axios from "axios";
-import { url } from "../../App.js";
+import { url } from "../../config.js";
 
 function Teacher() {
   // const [isDeleting, setIsDeleting] = useState(false);
