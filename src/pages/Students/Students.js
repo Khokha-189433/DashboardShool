@@ -31,9 +31,8 @@ const Students = () => {
             </Link>
           </div>
         </div>
-        <SectionWrapper>
+        <div className='student_card'>
           <Seaction title="Student"></Seaction>
-
           <div className="section-header-items">
             <div className="Table_Card">
               <table>
@@ -56,7 +55,8 @@ const Students = () => {
               </table>
             </div>
           </div>
-        </SectionWrapper>
+        </div>
+
         <br />
       </div>
     </>

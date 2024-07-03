@@ -2,34 +2,31 @@
   width: 100%;
   padding: 11px;
   border-radius: 10px;
-  margin-top: 20px;
-
-
-  
-}
+  margin-top: 20px;}
 table{
     border-collapse: collapse;
     width: 72rem;
+
 }
 
 th{
-   background-color: rgb(211, 162, 246); 
-    color: rgb(92, 44, 107);
+   background-color: rgba(36, 14, 51, 0.918); 
+    color: rgb(240, 218, 243);
     padding: 10px;
     text-align: center;
     font-size: 25px;
 }
 td{
    padding: 15px;
-   background-color: rgb(221, 205, 239); 
-   color: rgba(71, 42, 80, 0.775);
+   background-color:  #f9e7fc; 
+   text-align: center;
+   color: rgba(128, 67, 146, 0.644);
    font-size: 20px;
 }
 table  th, td{
-  border: 1px solid  rgb(151, 127, 177); ;
+  border: 1px solid  rgb(203, 155, 218); ;
 }
 
-tr :hover{
-    background-color: rgb(186, 146, 219);
-    color: rgb(237, 217, 255);
+.student_card{
+  margin-top: 30px;
 }

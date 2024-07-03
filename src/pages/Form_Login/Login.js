@@ -1,5 +1,8 @@
 import "./LoGin.css";
 import Profile from "../Imags/profile.png";
+import login from  "../../assets/sign_up_l.png"
+import undraw from "../../assets/undraw_onli.png"
+
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -51,12 +54,16 @@ export default function Login() {
   return (
     <>
       <div className="Main">
+        <div className="design_photo">
+          <img src={undraw}></img>
+        </div>
         <form onSubmit={handelSubmit}>
           <div className="sub-main">
             <div>
+          
               <div className="Imgs">
                 <div className="container-image">
-                  <img src={Profile} className="profile"></img>
+                  <img src={login} className="profile"></img>
                 </div>
               </div>
               <div>
