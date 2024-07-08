@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
-import FormLabel from "@mui/material/FormLabel";
 import { Link } from "react-router-dom";
 import { Button } from "@mui/material";
 import CardActions from "@mui/material/CardActions";
@@ -23,7 +20,7 @@ const QuestionLecture = (props) => {
       // Reset the navigation state to prevent repeated triggers
       location.state.newQuestionAdded = false;
     }
-  }, [location.state]);
+  }, [questions,location.state]);
 
   const handleRadioChange = (event) => {
     setSelectedOption(event.target.value);
@@ -49,15 +46,13 @@ const QuestionLecture = (props) => {
                 onChange={handleRadioChange}
               >
                 {question.choices.map((choice) => (
-                  // <FormControlLabel
-                  //   key={choice.choice_id}
-                  //   value={choice.choice_id}
-                  //   control={<Radio />}
-                  //   label={`${choice.choice} ${
-                  //     choice.is_correct ? "(Correct)" : "" }`
-                  //   }
-                  // />
-                  <h2 className="answer-style">{ choice.choice}</h2>
+                  <h2 
+                    key={choice.choice_id} 
+                    style={{ fontWeight: choice.is_correct ? 'bold' : 'normal', color: choice.is_correct ? 'green' : 'black' }}
+                    className="answer-style"
+                  >
+                    {choice.choice}
+                  </h2>
                 ))}
               </RadioGroup>
             </FormControl>
