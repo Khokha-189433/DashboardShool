@@ -5,7 +5,7 @@ import { Button } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 ///////// Component //////////////
 import HeaderList from "../../header&list/HeaderList.js";
-import CardPl from "./CourseCard.js";
+import TestTable from "./CoursesTable.js";
 import ClassCard from "../../Class-Components/ClassCard.js";
 import Seaction from "../../sectionHeader/Seaction.js";
 import SectionWrapper from "../../Section-Wrapper/SectionWrapper.js";
@@ -81,18 +81,23 @@ const Courses = () => {
           <div className="section-header-items">
             {/* -------cards ------------- */}
 
-            {CoursesData.map((course) => (
-              <div key={course.course_id} className="Class-Course">
-                <CardPl
-                  image={url + "/" + course.photo}
+            {
+              <div className="Class-Course">
+                <TestTable
+                  struct={["title", "price", "class", "teacher"]}
+                  data={CoursesData}
+                />
+
+                {/* 
+                   image={url + "/" + course.photo}
                   title={course.title}
                   price={"Price  :" + course.course_fee}
                   class={"Class" + " : " + course.class.name}
                   teacher={"Teacher" + " : " + course.teacher.name}
                   id={course.course_id}
-                />
+                 */}
               </div>
-            ))}
+            }
 
             {/* =========================== */}
             {/* -------cards ------------- */}
@@ -104,11 +109,8 @@ const Courses = () => {
           <Seaction title="Class"></Seaction>
           <div className="section-Class">
             {ClassData.map((event) => (
-              <div key={event.class_id} >
-                <ClassCard
-                  id={event.class_id}
-                  title={event.name}
-                />
+              <div key={event.class_id}>
+                <ClassCard id={event.class_id} title={event.name} />
               </div>
             ))}
           </div>

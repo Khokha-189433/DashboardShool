@@ -1,13 +1,40 @@
 import React from "react";
 import { Button } from "@mui/material";
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
 import { Link } from "react-router-dom";
-const CardPl = (props) => {
+
+/////////////////////////////
+const CoursesTable = (props) => {
   return (
     <>
       <div className="section-header-item">
-        <div className="card" id={props.id}>
+        <div className="Table_Card">
+          <table>
+            <thead>
+              <tr key={"header"}>
+                <th>title</th>
+                <th>price</th>
+                <th>teacher</th>
+              </tr>
+            </thead>
+            <tbody>
+              {props.data.map((course) => (
+                <tr key={course.course_id}>
+                  <td>{course.title}</td>
+                  <td>{course.course_fee} </td>
+                  <td>{course.teacher.name}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default CoursesTable;
+
+/* <div className="card" id={props.id}>
           <img className="section-header-item-images" src={props.image} />
           <div className="section-header-item-content">
             <h4 className="section-header-item-title">
@@ -36,10 +63,4 @@ const CardPl = (props) => {
               </Grid>
             </Box>
           </div>
-        </div>
-      </div>
-    </>
-  );
-};
-
-export default CardPl;
+        </div> */
