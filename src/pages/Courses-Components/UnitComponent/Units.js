@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Button } from "@mui/material";
-import Card from "@mui/material/Card";
+import { Button  , Grid} from "@mui/material";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
@@ -12,13 +11,13 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { url } from "../../../config";
 
-const Units = ({ id }) => {
-  let course_id = id;
+const Units = ({course}) => {
+  const course_id = course.course_id;
   const [UnitData, setUnitData] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios
-        .get(`${url}/course/${id}/unit`, {
+        .get(`${url}/course/${course_id}/unit`, {
           headers: {
             authorization: sessionStorage.getItem("Token"),
           },
@@ -52,7 +51,6 @@ const Units = ({ id }) => {
       // Handle errors (e.g., display an error message to the user)
     }
   }
-
   return (
     <>
       <div className="section-header-iteml">
@@ -61,44 +59,45 @@ const Units = ({ id }) => {
             <Button startIcon={<AddOutlinedIcon />}>Add</Button>
           </CardActions>
         </Link>
-        <div className="CardUnit">
-          {UnitData.map((unit) => (
-            <div key={unit.unit_id}>
-              <div variant="outlined" className="Card_Unit">
-                <CardContent>
-                  <h3> Unit Title : {unit.title}</h3>
-                  <Typography sx={{ mb: 1.0 }} >
-                    Unit Number {unit.unit_number}
-                  </Typography>
-                </CardContent>
-                <CardActions className="ButtonUnit">
-                  <Link to="/Unit" state={{ unit, course_id }}>
-                    <Button
-                      startIcon={<OpenInNewOutlinedIcon />}      
-                    >
-                      Open
-                    </Button>
-                  </Link>
-                  <Button
-                    startIcon={<DeleteIcon />}  
-                    onClick={() => {
-                      deleteUnit(course_id, unit.unit_id);
-                    }}
-                  >
-                    delete
-                  </Button>
-                  <Link to="/EditUnit" state={{ unit, course_id }}>
-                    <Button
-                      startIcon={<AutoFixNormalOutlinedIcon />}
-                    
-                    >
-                      Edit
-                    </Button>
-                  </Link>
-                </CardActions>
-              </div>
-            </div>
-          ))}
+        <div className="Table_Card">
+          <table>
+            <thead>
+              <tr key={"header"}>
+                <th>Number </th>
+                <th>Title </th>
+                <th> </th>
+              </tr>
+            </thead>
+            <tbody>
+              {UnitData.map((unit) => (
+                <tr key={unit.unit_id}>
+                  <td>{unit.unit_number}</td>
+                  <td>{unit.title}</td>
+                  <td>
+                  
+                      <Link to="/Unit" state={{ unit, course_id }}>
+                        <Button startIcon={<OpenInNewOutlinedIcon />}>
+                          Open
+                        </Button>
+                      </Link>
+                      <Button
+                        startIcon={<DeleteIcon />}
+                        onClick={() => {
+                          deleteUnit(course_id, unit.unit_id);
+                        }}
+                      >
+                        delete
+                      </Button>
+                      <Link to="/EditUnit" state={{ unit, course_id }}>
+                        <Button startIcon={<AutoFixNormalOutlinedIcon />}>
+                          Edit
+                        </Button>
+                      </Link>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </>

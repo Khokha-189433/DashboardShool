@@ -11,20 +11,24 @@ import Unit from "../UnitComponent/Units.js";
 //////////////////////////////
 
 const Course = () => {
+
   const [CourseData, setCourseData] = useState({});
   const [ClassData, setClassData] = useState({});
   const [TeacherData, setTeacherData] = useState({});
+ 
+  const course = useLocation().state;
 
-  const course_id = useLocation().state.id;
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get(`${url}/course/${course_id}`, {
+      console.log(course)
+      const response = await axios.get(`${url}/course/${course.course_id}`, {
         headers: {
           authorization: sessionStorage.getItem("Token"),
         },
       });
       const jsonData = response.data;
+      console.log(jsonData);
       setCourseData(jsonData.data); // لتغيير القيمة
       setTeacherData(jsonData.data.teacher);
       setClassData(jsonData.data.class);
@@ -69,7 +73,7 @@ const Course = () => {
         </div>
         <SectionWrapper>
           <Seaction title="Units"></Seaction>
-          <Unit id={course_id} />
+          <Unit course={course} />
         </SectionWrapper>
       </div>
     </>

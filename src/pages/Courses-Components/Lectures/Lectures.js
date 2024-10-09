@@ -66,8 +66,59 @@ const Lectures = (props) => {
             <Button startIcon={<AddOutlinedIcon />}>Add </Button>
           </CardActions>
         </Link>
+        <div className="Table_Card">
+          <table>
+            <thead>
+              <tr key={"header"}>
+                <th>Number </th>
+                <th>Title </th>
+                <th> </th>
+              </tr>
+            </thead>
+            <tbody>
+              {LectuerData.map((lecture) => (
+                <tr key={lecture.lecture_id}>
+                  <td>{lecture.lecture_number}</td>
+                  <td>{lecture.title}</td>
+                  <td>
+                 
+                      <Link
+                        to="/Lecture"
+                        state={{
+                          lecture_id: lecture.lecture_id,
+                          unit_id,
+                          course_id,
+                        }}
+                      >
+                        <Button startIcon={<OpenInNewOutlinedIcon />}>
+                          Open
+                        </Button>
+                      </Link>
 
-        <div className="Cards-Lecture">
+                      <Button
+                        startIcon={<DeleteIcon />}
+                        onClick={() => {
+                          deleteLectuer(lecture.lecture_id, course_id, unit_id);
+                        }}
+                      >
+                        delete
+                      </Button>
+                      <Link
+                        to="/EditLectuer"
+                        state={{ course_id, unit_id, lecture }}
+                      >
+                        <Button startIcon={<AutoFixNormalOutlinedIcon />}>
+                          Edit
+                        </Button>
+                      </Link>
+                   
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        {/* <div className="Cards-Lecture">
           {LectuerData.map((lecture) => (
             <div key={lecture.lecture_id}>
               <div variant="outlined" className="Card_Lecture">
@@ -122,7 +173,7 @@ const Lectures = (props) => {
               </div>
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
     </>
   );

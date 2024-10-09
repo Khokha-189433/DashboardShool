@@ -84,18 +84,8 @@ const Courses = () => {
             {
               <div className="Class-Course">
                 <TestTable
-                  struct={["title", "price", "class", "teacher"]}
                   data={CoursesData}
                 />
-
-                {/* 
-                   image={url + "/" + course.photo}
-                  title={course.title}
-                  price={"Price  :" + course.course_fee}
-                  class={"Class" + " : " + course.class.name}
-                  teacher={"Teacher" + " : " + course.teacher.name}
-                  id={course.course_id}
-                 */}
               </div>
             }
 
@@ -108,11 +98,9 @@ const Courses = () => {
           {/* -------class ------------- */}
           <Seaction title="Class"></Seaction>
           <div className="section-Class">
-            {ClassData.map((event) => (
-              <div key={event.class_id}>
-                <ClassCard id={event.class_id} title={event.name} />
-              </div>
-            ))}
+            {
+                <ClassCard class={ClassData}/>
+            }
           </div>
           {/* -------class ------------- */}
         </SectionWrapper>
