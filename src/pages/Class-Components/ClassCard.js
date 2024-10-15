@@ -2,7 +2,6 @@ import React from "react";
 import { Button } from "@mui/material";
 
 import Grid from "@mui/material/Grid";
-import { GridDeleteIcon } from "@mui/x-data-grid";
 import axios from "axios";
 import { url } from "../../config";
 const ClassCard = (props) => {
@@ -26,7 +25,7 @@ const ClassCard = (props) => {
       <div className="section-header-item">
         <div>
           <div className="Table_Card">
-            <table>
+            <table style={{ width: "600px" }}>
               <thead>
                 <tr key={"header"}>
                   <th>Title</th>
@@ -36,14 +35,12 @@ const ClassCard = (props) => {
               <tbody>
                 {props.class.map((Class) => (
                   <tr key={Class.class_id}>
-                    <td>
-                      {Class.name}
-                    </td>
+                    <td>{Class.name}</td>
                     <td>
                       <Grid item xs={8}>
                         <Button
-                          startIcon={<GridDeleteIcon />}
-                          style={{ marginTop: "35px", height: "32px" }}
+                          style={{ border: "1px solid black", color: "white" }}
+                          className="buttonStyle" //  موجودة في ملف الطلاب
                           onClick={() => {
                             deleteClass(Class.class_id);
                           }}

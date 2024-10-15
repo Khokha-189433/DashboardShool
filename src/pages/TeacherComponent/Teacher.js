@@ -4,10 +4,7 @@ import Seaction from "../sectionHeader/Seaction.js";
 import SectionWrapper from "../Section-Wrapper/SectionWrapper.js";
 import ContainerPage from "../container-page/ContainerPage.js";
 import { Button } from "@mui/material";
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
-import ModeEditOutlineIcon from "@mui/icons-material/ModeEditOutline";
-import DeleteIcon from "@mui/icons-material/Delete";
+import Grid from "@mui/material/Grid"
 import GroupAddIcon from "@mui/icons-material/GroupAdd";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -16,8 +13,8 @@ import axios from "axios";
 import { url } from "../../config.js";
 
 function Teacher() {
-  // const [isDeleting, setIsDeleting] = useState(false);
   const [userData, setUserData] = useState([]);
+
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(`${url}/teacher`, {
@@ -74,7 +71,62 @@ function Teacher() {
           </div>
           <SectionWrapper>
             <Seaction></Seaction>
-            <div className="section-items">
+            <div className="Table_Card">
+              <table>
+                <thead> 
+                  <tr key={"header"}>
+                    <th>Title</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {userData ? (
+                    userData.map((teachers) => (
+                      <tr key={teachers.class_id}>
+                       <td>{teachers.name}</td>
+                        <td>
+                          <Grid item xs={8}>
+                            <Link
+                              to="/ProfileTeacher"
+                              state={teachers.teacher_id}
+                            >
+                              <Button
+                                style={{
+                                  border: "1px solid black",
+                                  color: "white",
+                                }}
+                                className="buttonStyle"
+                              >
+                                Open
+                              </Button>
+                            </Link>
+                          </Grid>
+
+                          <Grid item xs={8}>
+                            <Button
+                              variant="outlined"
+                              style={{
+                                border: "1px solid black",
+                                color: "white",
+                              }}
+                              className="buttonStyle"
+                              onClick={() => {
+                                deleteTeacher(teachers.teacher_id);
+                              }}
+                            >
+                              Delete
+                            </Button>
+                          </Grid>
+                        </td>
+                      </tr>
+                    ))
+                  ) : (
+                    <p>there is no teachers</p>
+                  )}
+                </tbody>
+              </table>
+            </div>
+            {/* <div className="section-items">
               {userData ? (
                 userData.map((teacher) => (
                   <div className="section-item" key={teacher.teacher_id}>
@@ -86,32 +138,6 @@ function Teacher() {
                       />
                       <div className="section-item-content">
                         <h4 className="section-item-title1">{teacher.name}</h4>
-                        <Box sx={{ flexGrow: 1 }}>
-                          <Grid container spacing={2} columns={16}>
-                            <Grid item xs={8}>
-                              <Button
-                                variant="outlined"
-                                startIcon={<DeleteIcon />}
-                                onClick={() => {
-                                  deleteTeacher(teacher.teacher_id);
-                                }}
-                              >
-                                Delete
-                              </Button>
-                            </Grid>
-
-                            <Grid item xs={8}>
-                              <Link to="/EditTeacher" state={{ teacher }}>
-                                <Button
-                                  variant="outlined"
-                                  endIcon={<ModeEditOutlineIcon />}
-                                >
-                                  Edit
-                                </Button>
-                              </Link>
-                            </Grid>
-                          </Grid>
-                        </Box>
                       </div>
                     </div>
                   </div>
@@ -119,7 +145,7 @@ function Teacher() {
               ) : (
                 <p>there is no teachers</p>
               )}
-            </div>
+            </div> */}
           </SectionWrapper>
         </ContainerPage>
       </div>

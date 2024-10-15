@@ -9,7 +9,7 @@ const CoursesTable = (props) => {
     <>
       <div className="section-header-item">
         <div className="Table_Card">
-          <table>
+          <table style={{width:"1000px"}}>
             <thead>
               <tr key={"header"}>
                 <th>Title</th>
@@ -29,7 +29,12 @@ const CoursesTable = (props) => {
                   <td>
                     <Grid item xs={8}>
                       <Link to="/Course" state={course}>
-                        <Button>Open</Button>
+                        <Button
+                          style={{ border: "1px solid black", color: "white" }}
+                          className="buttonStyle"
+                        >
+                          Open
+                        </Button>
                       </Link>
                     </Grid>
                   </td>

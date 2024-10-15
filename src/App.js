@@ -7,7 +7,7 @@ import Home from "./pages/HOMEComponent/Home.js";
 import Teacher from "./pages/TeacherComponent/Teacher.js";
 import EditTeacher from "./pages/TeacherComponent/EditTeacher.js";
 import AddTeacher from "./pages/TeacherComponent/AddTeacher.js";
-import CardData from "./pages/TeacherComponent/CardTeacher.js";
+import ProfileTeacher from "./pages/TeacherComponent/ProfileTeacher.js";
 import AddUnit from "./pages/Courses-Components/UnitComponent/AddUnit.js";
 //////////////// course /////////////////////
 import Courses from "./pages/Courses-Components/Courses/Courses.js";
@@ -47,6 +47,7 @@ function App() {
         <Route path="/AddTeacher" element={<AddTeacher />} />
         <Route path="/CardData" element={<CardTeacher />} />
         <Route path="/EditTeacher" element={<EditTeacher />} />
+        <Route path="/ProfileTeacher" element={<ProfileTeacher />} />
         {/*end teacher  */}
         {/* Courses */}
         <Route path="/courses" element={<Courses />} />

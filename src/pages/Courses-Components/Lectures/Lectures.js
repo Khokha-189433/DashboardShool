@@ -81,37 +81,40 @@ const Lectures = (props) => {
                   <td>{lecture.lecture_number}</td>
                   <td>{lecture.title}</td>
                   <td>
-                 
-                      <Link
-                        to="/Lecture"
-                        state={{
-                          lecture_id: lecture.lecture_id,
-                          unit_id,
-                          course_id,
-                        }}
-                      >
-                        <Button startIcon={<OpenInNewOutlinedIcon />}>
-                          Open
-                        </Button>
-                      </Link>
-
+                    <Link
+                      to="/Lecture"
+                      state={{
+                        lecture_id: lecture.lecture_id,
+                        unit_id,
+                        course_id,
+                      }}
+                    >
                       <Button
-                        startIcon={<DeleteIcon />}
-                        onClick={() => {
-                          deleteLectuer(lecture.lecture_id, course_id, unit_id);
-                        }}
+                        style={{ border: "1px solid black", color: "white" }}
+                        className="buttonStyle"
                       >
-                        delete
+                        Open
                       </Button>
-                      <Link
-                        to="/EditLectuer"
-                        state={{ course_id, unit_id, lecture }}
-                      >
-                        <Button startIcon={<AutoFixNormalOutlinedIcon />}>
-                          Edit
-                        </Button>
-                      </Link>
-                   
+                    </Link>
+
+                    <Button
+                      style={{ border: "1px solid black", color: "white" }}
+                      className="buttonStyle"
+                      onClick={() => {
+                        deleteLectuer(lecture.lecture_id, course_id, unit_id);
+                      }}
+                    >
+                      delete
+                    </Button>
+                    <Link
+                      to="/EditLectuer"
+                      state={{ course_id, unit_id, lecture }}
+                    >
+                      <Button style={{border:"1px solid black" , color:"white"}}
+                               className="buttonStyle">
+                        Edit
+                      </Button>
+                    </Link>
                   </td>
                 </tr>
               ))}

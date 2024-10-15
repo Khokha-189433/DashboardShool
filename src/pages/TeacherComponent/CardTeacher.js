@@ -13,7 +13,7 @@ const CardTeacher = (props) => {
    return (
           <>
         
-            <div className='section-item'>
+            {/* <div className='section-item'>
                     <div className='cards'>
                         <img  className='section-items-image'  />  
                         <div  className='section-item-content'>
@@ -38,7 +38,7 @@ const CardTeacher = (props) => {
                         
                     </div>   
                     
-            </div>  
+            </div>   */}
           </>
          )
 }

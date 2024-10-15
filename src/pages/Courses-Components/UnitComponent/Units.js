@@ -1,11 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Button  , Grid} from "@mui/material";
 import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
-import DeleteIcon from "@mui/icons-material/Delete";
-import OpenInNewOutlinedIcon from "@mui/icons-material/OpenInNewOutlined";
-import AutoFixNormalOutlinedIcon from "@mui/icons-material/AutoFixNormalOutlined";
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -65,7 +60,7 @@ const Units = ({course}) => {
               <tr key={"header"}>
                 <th>Number </th>
                 <th>Title </th>
-                <th> </th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
@@ -74,25 +69,31 @@ const Units = ({course}) => {
                   <td>{unit.unit_number}</td>
                   <td>{unit.title}</td>
                   <td>
-                  
-                      <Link to="/Unit" state={{ unit, course_id }}>
-                        <Button startIcon={<OpenInNewOutlinedIcon />}>
-                          Open
-                        </Button>
-                      </Link>
+                    <Link to="/Unit" state={{ unit, course_id }}>
                       <Button
-                        startIcon={<DeleteIcon />}
-                        onClick={() => {
-                          deleteUnit(course_id, unit.unit_id);
-                        }}
+                        style={{ border: "1px solid black", color: "white" }}
+                        className="buttonStyle"
                       >
-                        delete
+                        Open
                       </Button>
-                      <Link to="/EditUnit" state={{ unit, course_id }}>
-                        <Button startIcon={<AutoFixNormalOutlinedIcon />}>
-                          Edit
-                        </Button>
-                      </Link>
+                    </Link>
+                    <Button
+                      style={{ border: "1px solid black", color: "white" }}
+                      className="buttonStyle"
+                      onClick={() => {
+                        deleteUnit(course_id, unit.unit_id);
+                      }}
+                    >
+                      delete
+                    </Button>
+                    <Link to="/EditUnit" state={{ unit, course_id }}>
+                      <Button
+                        style={{ border: "1px solid black", color: "white" }}
+                        className="buttonStyle"
+                      >
+                        Edit
+                      </Button>
+                    </Link>
                   </td>
                 </tr>
               ))}

@@ -1,32 +1,80 @@
 .Table_Card{
-  width: 100%;
-  padding: 11px;
-  border-radius: 10px;
-  margin-top: 20px;}
-table{
-    border-collapse: collapse;
-    width: 72rem;
-
+  margin-top: 20px;
+}
+table {
+  padding: 0 2em;
+  font-family: Arial, sans-serif;
+  color: #725a5a; 
+  border-collapse: separate;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 24px;
+  margin: 30px auto;
+  width:100%;
+}
+ th {
+  background: url(https://jackrugile.com/images/misc/noise-diagonal.png), linear-gradient(#777, #444);
+  border-left: 1px solid #555;
+  border-right: 1px solid #777;
+  border-top: 1px solid #555;
+  border-bottom: 1px solid #333;
+  box-shadow: inset 0 1px 0 #999;
+  color: #fff;
+  font-weight: bold;
+  padding: 7px 3px;
+  position: relative;
+  text-shadow: 0 1px 0 #463838;  
+  text-align: center !important;
 }
 
-th{
-   background-color: rgba(36, 14, 51, 0.918); 
-    color: rgb(240, 218, 243);
-    padding: 10px;
+  th, td {
+      text-align: left;
+      margin: .3em 1em !important;
+      display: table-cell;
+  }
+
+table   td{
+  border: 2px solid  rgba(128, 127, 127, 0.377); 
+  padding: 3px;
+  margin: 10px;
+  text-align: center;    
+  word-wrap: break-word;
+  max-width: 7em; 
+  position: relative;
+  transition: all 300ms;
+  &:first-child { 
+    display: table-cell; 
     text-align: center;
-    font-size: 25px;
+    border-right:cell-border;
+  }
 }
-td{
-   padding: 15px;
-   background-color:  #f9e7fc; 
-   text-align: center;
-   color: rgba(128, 67, 146, 0.644);
-   font-size: 20px;
+
+tbody:hover td {
+  color: transparent;
+  text-shadow: 0 0 3px #aaa;
 }
-table  th, td{
-  border: 1px solid  rgb(203, 155, 218); ;
+
+tbody:hover tr:hover td {
+  color: #444;
+  text-shadow: 0 1px 0 #fff;
 }
+
+
+
+
+
+
+
+
+
+
 
 .student_card{
   margin-top: 30px;
+}
+table tr:hover {background-color: #ddd;}
+.buttonStyle{
+  background-color: #99999962 !important;
+  width: 1px !important;
+  margin: 3px !important;
 }
